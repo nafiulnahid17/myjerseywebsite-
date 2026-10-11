@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Button } from '@workspace/my-jersey-design/components/ui/button';
 import { CreationCard } from '@workspace/my-jersey-design/components/ui/creation-card';
 import { CREATIONS, WORKS } from '@/data/catalog';
-import { LOGO, designImg, pad } from '@/lib/brand';
+import { BrandMark } from '@workspace/my-jersey-design/components/ui/brand-logo';
+import { designImg, pad } from '@/lib/brand';
 
 type Props = { onView: (i: number) => void; onCustomize: (i: number) => void; onOrder: (i: number) => void };
 
@@ -16,7 +17,7 @@ export function Works({ onView, onCustomize, onOrder }: Props) {
       <div className="lc-top">
         <div>
           <p className="sub">An editorial collection of premium kit concepts from the My Jersey studio. Pick one, make it yours with your name, number and colors.</p>
-          <p className="lc-note"><img src={LOGO} width={768} height={256} loading="lazy" decoding="async" alt="My Jersey" />Design previews: photorealistic AI concept mockups, not photos of produced jerseys. Final artwork confirmed before production.</p>
+          <p className="lc-note"><BrandMark className="lc-crest" />Design previews: photorealistic AI concept mockups, not photos of produced jerseys. Final artwork confirmed before production.</p>
         </div>
         <p className="lc-count" aria-live="polite"><b>{pad(n - 1)}</b>of 25 designs</p>
       </div>
@@ -24,7 +25,7 @@ export function Works({ onView, onCustomize, onOrder }: Props) {
         {CREATIONS.slice(0, n).map((c, i) => {
           const w = WORKS[i];
           return <CreationCard key={i} className="lk" onView={() => onView(i)} onCustomize={() => onCustomize(i)} onOrder={() => onOrder(i)}
-            creation={{ index: i, name: c[0], base: c[1], accent: c[2], logo: LOGO, image: designImg(i, '640'),
+            creation={{ index: i, name: c[0], base: c[1], accent: c[2], image: designImg(i, '640'),
               srcSet: `${designImg(i, '640')} 640w, ${designImg(i, '1280')} 1280w`,
               details: w ? { fabric: w[5], gsm: w[6], quality: w[7] } : undefined }} />;
         })}

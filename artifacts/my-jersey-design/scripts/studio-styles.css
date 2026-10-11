@@ -1,0 +1,9 @@
+/* Studio additions (2026 premium revision). Token-driven; no raw theme colours. */
+.mj-brand{display:inline-flex;align-items:center;gap:.6em;line-height:1;color:var(--tx);font-size:16px;text-decoration:none}
+.mj-brand-small{font-size:13px}.mj-brand-large{font-size:24px}
+.mj-brand-mark{width:2.6em;height:2.6em;flex:none;display:block;filter:drop-shadow(0 6px 14px color-mix(in srgb,var(--navy) 35%,transparent))}
+.mj-brand-word{display:flex;flex-direction:column;gap:.38em}
+.mj-brand-word b{font:800 1.42em/1 var(--app-font-serif);letter-spacing:.01em;color:var(--tx);white-space:nowrap}
+.mj-brand-word b i{font-style:italic;margin-left:.22em;background:var(--gold-gradient);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.mj-brand-word small{font:600 .5em/1 var(--app-font-condensed);letter-spacing:.32em;text-transform:uppercase;color:var(--mu);white-space:nowrap}
+.mj-creation-card .mj-creation-image .mj-creation-crest{position:absolute;top:12px;right:12px;z-index:1;width:34px;height:34px}

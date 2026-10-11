@@ -1,44 +1,57 @@
-# [Project name]
+# My Jersey
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A Bangladesh custom-jersey storefront with a cinematic hero, design references,
+team-order requests and WhatsApp-assisted ordering.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- Use the existing artifact-managed workflows; do not add duplicate servers.
+- `pnpm --filter @workspace/my-jersey run typecheck` — check storefront types.
+- `pnpm --filter @workspace/my-jersey-design run typecheck` — regenerate theme outputs and check the shared design system.
+- `PORT=23805 BASE_PATH=/ pnpm --filter @workspace/my-jersey run build` — production frontend build using the current preview configuration.
+- `node --experimental-strip-types --test artifacts/my-jersey/tests/commerce.test.mjs` — cart, request, persistence and file-validation regression checks.
+- API services bind to their managed `PORT`, not a hardcoded port.
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- pnpm workspace, React + Vite + TypeScript, Wouter.
+- Shared visual primitives and theme: `@workspace/my-jersey-design`.
+- Express API serves allowlisted brand assets and hero media from App Storage.
+- Cart, profile preferences and prepared request history currently use browser storage, not a server-side order database.
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/my-jersey/` — storefront, preview `/`.
+- `artifacts/my-jersey-design/` — living design system and canonical tokens; read its `docs/AGENTS.md` before UI changes.
+- `artifacts/api-server/` — media API; paths under `/api`.
+- `generated-artifacts/` — ignored source/export outputs, not deployed app dependencies.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The owner explicitly requested an admin gateway only. Authentication, management APIs and publishing controls are not connected.
+- Existing WhatsApp-assisted ordering remains the operational handoff. Opening WhatsApp does not prove that a message was sent or an order accepted.
+- File selection previews a customer's design locally. It is not a server upload; the customer attaches the original in WhatsApp.
+- New user-upload storage requires an explicitly integrated protected storage flow; do not add unauthenticated public upload endpoints.
+- App assets required after publishing belong in App Storage, not ignored generation directories.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Preserve the realistic hero: autoplay once on fresh visit/refresh, no player controls or looping, hold the last frame.
+- Collection images are attributed team-kit references or explicitly labelled AI design concepts, not verified stock photographs.
+- Custom/team starting offers do not override individual catalog prices. Quotes, stock, delivery and payment are confirmed with the team.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- New premium branding and gradients supersede the old repository-exact appearance.
+- Light theme: white, blue and gold.
+- Collection cards stay compact; custom/team campaign banners should be expansive.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Edit design-system tokens and source styles, never generated theme outputs directly.
+- Keep catalog prices authoritative within the client; browser storage stores product IDs and options, not trusted price values.
+- Never show invented fulfillment/payment statuses or treat a local profile as authenticated.
+- Cold GCS reads may log stream-listener warnings despite valid media responses; verify response integrity before diagnosing an outage.
 
 ## Pointers
 

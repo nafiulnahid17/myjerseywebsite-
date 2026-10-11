@@ -1,6 +1,6 @@
 ---
 name: My Jersey creative direction
-description: The user's clarified visual intent for the My Jersey website hero.
+description: Current My Jersey visual direction, hero requirements and permission to depart from the repository baseline.
 ---
 
 The user clarified: “Animation না realistic হবে। Viewটা পুরোটা realistic হবে, high quality হবে.”
@@ -15,37 +15,31 @@ The intended story is four or five people running and playing football on the st
 
 The user confirmed the realistic footage was good, but does not want play, replay, elapsed-time controls or “Watch the strike again.” The hero must automatically play once for each fresh page load or refresh and then hold its final frame.
 
-Hero CTAs: “Get your custom jersey” and “Contact now.”
-Navigation: “Recent works,” “Contact,” “About,” “Outlets,” and “Factory.”
+The current primary hero CTA is “Order for your Team”; preserve the secondary contact action.
 
 **Why:** The user explicitly requested an automatic website hero, not a video-player interface.
 
-**How to apply:** Keep film playback state separate from visible controls; do not add replay UI or looping when revising the hero. Preserve the two CTA labels and five navigation labels.
+**How to apply:** Keep film playback state separate from visible controls; do not add replay UI or looping when revising the hero.
 
 ## Canonical website reference
 
 The user subsequently specified: “https://github.com/atheriouslabs/myjerseywebmain - ei repo er moto same to same hbe shudu hero section a video ta add hbe”.
 
-Use that repository as the authoritative visual reference. Match its existing website rather than inventing a new layout or extending the earlier cinematic landing page; only the requested hero video is the visual change.
+That repository is the historical baseline, not a restriction against the subsequently authorized premium redesign. The user later requested new branding throughout, richer gradients, a white–blue–gold light theme, fuller outlet/factory/people/contact sections and full-width custom/team campaigns.
+
+**Why:** The newer explicit redesign request supersedes the earlier “same to same” visual restriction.
+
+**How to apply:** Retain real business information and the existing catalog, while developing the new visual direction through the shared design system. Do not revert the site to the repository's old green logo or treat the original extraction as a permanent styling restriction.
 
 Exception to the repository hero: do not restore its two floating jersey graphics over the video.
 
 **Why:** The user explicitly asked to remove them because they looked bad over the footage.
 
-**How to apply:** Keep the hero footage unobstructed by decorative jersey graphics; preserve the existing text, CTAs and playback behavior.
+**How to apply:** Keep the hero footage unobstructed by decorative jersey graphics and preserve one-shot playback.
 
 Card styling is also an approved exception: “all the highlighted cards of every section - reduce size to 50 % - and give more premium vibe - premium experience for user”.
 
 **Why:** The user explicitly requested this site-wide card refinement after approving the repository-matched website.
 
-**How to apply:** Keep card surfaces compact and premium within the existing design system. Preserve readable mobile text, usable controls, product content and behavior; leave the hero unchanged.
+**How to apply:** Keep collection cards compact, readable and usable. The later request explicitly expands the custom/team campaign banners to full width; do not shrink those banners just to satisfy the earlier card-size rule.
 
-**Why:** The user rejected applying the first extracted design system and supplied this stricter, source-backed direction.
-
-**How to apply:** Preserve the repository's typography, colors, page structure and existing content. When earlier layout, navigation or CTA proposals differ from the repository, the newer exact-match instruction takes precedence. Keep the previously requested one-shot autoplay and final-frame hold for the added video.
-
-The user approved the repository-based design-system preview and requested completion of the remaining source components, not another visual direction.
-
-**Why:** The user explicitly approved continuing this source-matched approach.
-
-**How to apply:** Retain the approved repository-derived appearance. Design-system review or repository ownership permission is not permission to change website screens; the user requested a separate application decision after the complete system is presented.

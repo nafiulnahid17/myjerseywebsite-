@@ -1,0 +1,17 @@
+// Studio additions to the repository sprite, drawn on the same 24px grid and 1.6 stroke.
+export const studioIcons = "<svg style=\"position:absolute;width:0;height:0\" aria-hidden=\"true\">"
++ "<symbol id=\"mj-repo-i-user\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"8.5\" r=\"3.8\"/><path d=\"M4.5 20a7.5 7.5 0 0 1 15 0\"/></symbol>"
++ "<symbol id=\"mj-repo-i-upload\" viewBox=\"0 0 24 24\"><path d=\"M12 15V4M7.5 8.5 12 4l4.5 4.5\"/><path d=\"M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3\"/></symbol>"
++ "<symbol id=\"mj-repo-i-clipboard\" viewBox=\"0 0 24 24\"><rect x=\"5\" y=\"4\" width=\"14\" height=\"17\" rx=\"2.5\"/><path d=\"M9 4.5V6h6V4.5M8.5 11h7M8.5 14.5h7M8.5 18h4\"/></symbol>"
++ "<symbol id=\"mj-repo-i-send\" viewBox=\"0 0 24 24\"><path d=\"M20.5 3.5 10 14M20.5 3.5l-6.5 17-4-6.5-6.5-4z\"/></symbol>"
++ "<symbol id=\"mj-repo-i-pin\" viewBox=\"0 0 24 24\"><path d=\"M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.3\"/></symbol>"
++ "<symbol id=\"mj-repo-i-track\" viewBox=\"0 0 24 24\"><circle cx=\"6\" cy=\"18\" r=\"2.2\"/><circle cx=\"18\" cy=\"6\" r=\"2.2\"/><path d=\"M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8\"/></symbol>"
++ "<symbol id=\"mj-repo-i-file\" viewBox=\"0 0 24 24\"><path d=\"M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z\"/><path d=\"M14 3v5h5M9 13h6M9 17h4\"/></symbol>"
++ "<symbol id=\"mj-repo-i-plus\" viewBox=\"0 0 24 24\"><path d=\"M12 5v14M5 12h14\"/></symbol>"
++ "<symbol id=\"mj-repo-i-minus\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\"/></symbol>"
++ "<symbol id=\"mj-repo-i-trash\" viewBox=\"0 0 24 24\"><path d=\"M4.5 7h15M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13M10 11v5.5M14 11v5.5\"/></symbol>"
++ "<symbol id=\"mj-repo-i-check\" viewBox=\"0 0 24 24\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"/></symbol>"
++ "<symbol id=\"mj-repo-i-lock\" viewBox=\"0 0 24 24\"><rect x=\"5\" y=\"10.5\" width=\"14\" height=\"10\" rx=\"2.5\"/><path d=\"M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5\"/></symbol>"
++ "<symbol id=\"mj-repo-i-palette\" viewBox=\"0 0 24 24\"><path d=\"M12 3.5a8.5 8.5 0 1 0 0 17c1.3 0 1.8-1 1.3-2-.6-1.2.2-2.5 1.5-2.5H17a3.5 3.5 0 0 0 3.5-3.5c0-5-3.8-9-8.5-9z\"/><circle cx=\"7.8\" cy=\"11\" r=\"1\"/><circle cx=\"10.5\" cy=\"7.3\" r=\"1\"/><circle cx=\"15\" cy=\"7.6\" r=\"1\"/></symbol>"
++ "<symbol id=\"mj-repo-i-grid\" viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"7\" height=\"7\" rx=\"1.6\"/><rect x=\"13\" y=\"4\" width=\"7\" height=\"7\" rx=\"1.6\"/><rect x=\"4\" y=\"13\" width=\"7\" height=\"7\" rx=\"1.6\"/><rect x=\"13\" y=\"13\" width=\"7\" height=\"7\" rx=\"1.6\"/></symbol>"
++ "</svg>";

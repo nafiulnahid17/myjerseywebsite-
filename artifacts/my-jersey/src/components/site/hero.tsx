@@ -4,7 +4,7 @@ import { Icon } from '@workspace/my-jersey-design/components/ui/icon';
 import { HERO_POSTER, HERO_VIDEO, HERO_REVEAL_SECONDS } from '@/lib/hero-media';
 
 /** Source hero; the realistic footage plays once beneath it and holds its final frame. */
-export function Hero() {
+export function Hero({ onTeamOrder }: { onTeamOrder: () => void }) {
   const video = useRef<HTMLVideoElement>(null);
   const [failed, setFailed] = useState(false);
   const [welcomed, setWelcomed] = useState(false);
@@ -17,7 +17,7 @@ export function Hero() {
     v.muted = true;
     v.currentTime = 0;
     v.play().catch(() => { /* autoplay blocked: poster frame remains */ });
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <section className="hero" id="top">
@@ -34,8 +34,8 @@ export function Hero() {
         <h1>Crafted for <em>Champions.</em></h1>
         <p>Design professional-quality jerseys with your colors, logo, name and number. Built for teams, athletes and communities.</p>
         <div className="bs">
-          <Button href="#custom">Start Designing <Icon name="arrow" /></Button>
-          <Button variant="outline" href="#shop">Shop Ready Jerseys</Button>
+          <Button onClick={onTeamOrder} data-testid="button-hero-team-order">Order for your Team <Icon name="arrow" /></Button>
+          <Button variant="outline" href="#contact" data-testid="link-hero-contact"><Icon name="wa" />Contact</Button>
         </div>
         <ul className="tr">
           <li><Icon name="fabric" />Premium fabric</li>

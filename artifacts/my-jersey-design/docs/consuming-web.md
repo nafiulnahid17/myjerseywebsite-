@@ -18,13 +18,18 @@ import { ProductCard } from "@workspace/my-jersey-design/components/ui/product-c
 import { CreationCard } from "@workspace/my-jersey-design/components/ui/creation-card";
 import { Dialog } from "@workspace/my-jersey-design/components/ui/dialog";
 import { Toast } from "@workspace/my-jersey-design/components/ui/toast";
-import myJerseyLogo from "@workspace/my-jersey-design/assets/my-jersey-logo.png";
+import { BrandLogo, BrandMark } from "@workspace/my-jersey-design/components/ui/brand-logo";
 ```
 
-Mount IconSprite once per document. Use the root dark class and data-theme=dark
-on fresh visits. Theme controls remove the dark class and set data-theme=light
-for light mode. Do not persist a previous choice: the repository defaults to
-dark each visit. Both themes come directly from the repository.
+Mount IconSprite once per document. Persist the theme choice in localStorage
+(`mj-theme`), apply it before first paint, and fall back to the OS preference.
+Light is white + blue + gold; dark is midnight navy + gold. Paint page
+backgrounds with `var(--page)` and premium feature bands with `var(--band)`
+and `--band-tx`/`--band-mu`/`--band-bd`; never hardcode new colours in the app.
+
+BrandLogo: variant full/mark/word, size small/default/large, tagline, label.
+Use it for header, footer, banners and any brand surface. Do not render the
+archived raster logo.
 
 Button supports primary/outline/icon/filter variants, default/small sizes,
 native button attributes, href/target/rel for CTA anchors, disabled guards and
@@ -40,14 +45,12 @@ Keep product arrays, cart mutations, request form validation, contact details,
 WhatsApp links, navigation and full section compositions in the application.
 The source is native HTML/CSS/JS, with no headless UI implementation to replace.
 
-Import proof: render one Button, typecheck and verify the runtime theme before
-broader migration. Use the genuine logo retained in this package rather than
-introducing a typography-based replacement. Preserve original agency attribution.
+Preserve original agency attribution.
 
-CreationCard accepts source image/srcset/sizes, a logo URL, zero-based design
+CreationCard accepts source image/srcset/sizes, an optional logo URL (omit it to
+use the BrandMark crest), zero-based design
 index, colors, optional fabric metadata and view/customize/order callbacks.
-Import the exported logo asset; never depend on the preview server URL in
-production. Copy no components or token values into the application.
+Copy no components or token values into the application.
 
 Dialog is a controlled native body portal with default/wide/request variants.
 It owns backdrop/Escape closing, focus trapping and return focus. App-owned
