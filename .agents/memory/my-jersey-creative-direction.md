@@ -31,3 +31,9 @@ Use that repository as the authoritative visual reference. Match its existing we
 **Why:** The user rejected applying the first extracted design system and supplied this stricter, source-backed direction.
 
 **How to apply:** Preserve the repository's typography, colors, page structure and existing content. When earlier layout, navigation or CTA proposals differ from the repository, the newer exact-match instruction takes precedence. Keep the previously requested one-shot autoplay and final-frame hold for the added video.
+
+The user approved the repository-based design-system preview and requested completion of the remaining source components, not another visual direction.
+
+**Why:** The user explicitly approved continuing this source-matched approach.
+
+**How to apply:** Retain the approved repository-derived appearance. Design-system review or repository ownership permission is not permission to change website screens; the user requested a separate application decision after the complete system is presented.

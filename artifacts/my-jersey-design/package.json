@@ -9,7 +9,8 @@
     "./styles.css": "./src/index.css",
     "./components/*": "./src/components/*.tsx",
     "./lib/*": "./src/lib/*.tsx",
-    "./hooks/*": "./src/hooks/*.tsx"
+    "./hooks/*": "./src/hooks/*.tsx",
+    "./assets/*": "./src/assets/*"
   },
   "imports": {
     "#components/*": "./src/components/*.tsx",

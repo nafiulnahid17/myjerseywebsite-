@@ -5,7 +5,7 @@ Source lines: 99–105, 196. Retained source: ../repository/index.html.
 Rights: the user confirmed ownership and authorized reuse; preserve agency attribution in the website.
 
 Export: components/ui/creation-card. Dependencies: Button (earlier chunk).
-Evidence: Recent-work image grid and customize/order actions. Chunk: 2. Status: pending.
+Evidence: Recent-work image grid and customize/order actions. Chunk: 2. Status: implemented.
 
 ## Source contract
 
@@ -23,10 +23,10 @@ const lk=(c,i)=>{const w=W[i],im=IMG(i);return `<article class="lk${i>4?' x':''}
 
 ## Public boundary
 
-Pending pilot approval. Preserve source image button, responsive srcset, design index, logo overlay, color dots, source details and customize/order callbacks.
+CreationCard: creation {index,name,base,accent,image,srcSet?,sizes?,logo,details?}, article DOM props and onView/onCustomize/onOrder callbacks receiving that creation. Index is zero-based; display number is padded index+1. First two designs eagerly load and use source featured sizes. Later designs retain the source entrance animation/delay. Missing details use the exact source concept disclosure. Gallery columns and ordering remain app-owned.
 
 ## Runtime and fidelity
 
-Import the generated token theme. scripts/source-component-styles.css is included by the theme template. Native CSS aliases retain the exact source colors, rgba borders, gradients, shadows, hover geometry and both original themes. Load the exact source Google Fonts URL for DM Sans, Playfair Display and Oswald. Synchronize the root dark class with data-theme. Mount IconSprite once per document. App-global IDs, product arrays, selector-based state, contact destinations and full sections stay in the app.
+Import the generated token theme. scripts/source-component-styles.css and scripts/source-feedback-styles.css are included by the theme template. Native CSS aliases retain the exact source colors, rgba borders, gradients, shadows, hover geometry and both original themes. Load the exact source Google Fonts URL for DM Sans, Playfair Display and Oswald. Synchronize the root dark class with data-theme. Mount IconSprite once per document. App-global IDs, product arrays, selector-based state, contact destinations and full sections stay in the app.
 
 React DOM props and callbacks are adapters around the native source. CSS selectors and SVG IDs are namespaced to avoid collisions. No headless replacement exists in this port because no headless library exists in the source. Every implemented family has a lazily loaded story including its source variants and important states.

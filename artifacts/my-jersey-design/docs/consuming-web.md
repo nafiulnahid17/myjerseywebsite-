@@ -1,8 +1,7 @@
 # Consuming My Jersey on the web
 
-Read AGENTS.md and references/component-inventory.md first. Screen migration
-is blocked until the required source families are implemented and the user
-approves applying the completed system. Do not infer application approval
+Read AGENTS.md and references/component-inventory.md first. All eight required source families are implemented. Screen migration
+still requires the user to approve applying this completed system. Do not infer application approval
 from ownership permission or pilot approval.
 
 Add @workspace/my-jersey-design as a workspace dependency using the pnpm
@@ -16,6 +15,10 @@ import { Button } from "@workspace/my-jersey-design/components/ui/button";
 import { JerseyPreview } from "@workspace/my-jersey-design/components/ui/jersey-preview";
 import { Tag } from "@workspace/my-jersey-design/components/ui/tag";
 import { ProductCard } from "@workspace/my-jersey-design/components/ui/product-card";
+import { CreationCard } from "@workspace/my-jersey-design/components/ui/creation-card";
+import { Dialog } from "@workspace/my-jersey-design/components/ui/dialog";
+import { Toast } from "@workspace/my-jersey-design/components/ui/toast";
+import myJerseyLogo from "@workspace/my-jersey-design/assets/my-jersey-logo.png";
 ```
 
 Mount IconSprite once per document. Use the root dark class and data-theme=dark
@@ -40,3 +43,22 @@ The source is native HTML/CSS/JS, with no headless UI implementation to replace.
 Import proof: render one Button, typecheck and verify the runtime theme before
 broader migration. Use the genuine logo retained in this package rather than
 introducing a typography-based replacement. Preserve original agency attribution.
+
+CreationCard accepts source image/srcset/sizes, a logo URL, zero-based design
+index, colors, optional fabric metadata and view/customize/order callbacks.
+Import the exported logo asset; never depend on the preview server URL in
+production. Copy no components or token values into the application.
+
+Dialog is a controlled native body portal with default/wide/request variants.
+It owns backdrop/Escape closing, focus trapping and return focus. App-owned
+form, cart and contact content goes in children. Change contentKey when
+replacing same-variant content while open to refocus new controls.
+
+Toast is controlled, with source duration 1800ms. Increment eventKey for each
+new notice, including repeated identical messages, to restart the hide timer.
+Keep message/open/eventKey in application state; the component cancels stale
+timers on replacement/close/unmount.
+
+Use React callbacks OR legacy data-a delegation for an action, not both.
+Preserved source data attributes support either boundary, but combining the
+two would duplicate cart/order actions.
