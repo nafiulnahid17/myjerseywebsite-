@@ -4,3 +4,4 @@
 - [Preview captures](preview-captures.md) — SPA hash anchors can miss initial render; text fragments can target lower sections, with browser-only highlighting.
 - [Jersey reference imagery](jersey-reference-imagery.md) — use real kit references matched to names; distinguish stock photos and verify resolution before claiming original 4K.
 - [Storefront scope](my-jersey-storefront-scope.md) — custom/team starting offers are distinct; admin backend is explicitly deferred; never imply local requests are confirmed orders.
+- [GitHub push authentication](github-push-auth.md) — Replit's healthy GitHub OAuth may not authenticate Git transport; use a least-privileged secret for pushes.
