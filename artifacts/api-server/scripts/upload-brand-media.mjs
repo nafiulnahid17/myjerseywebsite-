@@ -17,7 +17,10 @@ const [bucket, ...directory] = publicPath.replace(/^\/+/, "").split("/");
 const source = process.argv[2];
 if (!source) throw new Error("Provide the authorized repository assets directory");
 const files = (await readdir(source, { recursive: true })).filter(name => name.endsWith(".webp")).sort();
-const manifest = {};
+const manifestPath = new URL("../src/lib/brand-media-manifest.json", import.meta.url);
+const manifest = process.argv.includes("--merge-manifest")
+  ? JSON.parse(await readFile(manifestPath, "utf8"))
+  : {};
 for (const file of files) {
   const name = path.basename(file);
   if (manifest[name]) throw new Error("Duplicate source asset basename");
@@ -40,5 +43,5 @@ await Promise.all(Array.from({ length: 4 }, async () => {
     }
   }
 }));
-await writeFile(new URL("../src/lib/brand-media-manifest.json", import.meta.url), JSON.stringify(manifest, null, 2) + "\n");
-console.info(`Uploaded ${files.length} original repository images to App Storage; saved public filename/hash manifest.`);
+await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
+console.info(`Uploaded ${files.length} brand images to App Storage; saved public filename/hash manifest.`);

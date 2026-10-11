@@ -32,7 +32,7 @@ export function Shop(a: Actions) {
   return (
     <section id="shop"><div className="w">
       <span className="eb">Ready collections</span><h2>Customize Your Favourite Ones</h2>
-      <p className="shop-ref-note" role="note">Team-kit photos are style references, not photos of My Jersey stock or proof of team affiliation. Illustrations remain where a matching high-resolution photograph is still being sourced.</p>
+      <p className="shop-ref-note" role="note">Team-kit references and labelled AI-generated concepts show design inspiration, not verified photos of My Jersey stock or proof of team affiliation. AI concepts include upscaled 4K exports.</p>
       <Collection k="fb" {...a} />
       <Collection k="cr" {...a} />
     </div></section>
