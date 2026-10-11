@@ -119,13 +119,19 @@ function escapeXml(value) {
     .replaceAll(">", "&gt;");
 }
 
+/** Premium My Jersey crest (same geometry as the BrandLogo component). */
 function buildFavicon(tokens) {
-  const primary = normalizeHex(resolveValue(tokens.color.light.primary, tokens));
-  const letter = escapeXml(faviconLetter());
-  const fg = contrastColor(primary);
-  return `<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="180" height="180" rx="36" fill="${primary}"/>
-  <text x="90" y="92" fill="${fg}" font-family="ui-sans-serif, system-ui, sans-serif" font-size="104" font-weight="700" text-anchor="middle" dominant-baseline="central">${letter}</text>
+  const v = (name) => resolveValue(tokens.source.light[name], tokens);
+  return `<svg width="180" height="180" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="f" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${v("navy2")}"/><stop offset="1" stop-color="${v("navy")}"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${resolveValue(tokens.source.dark.gold2, tokens)}"/><stop offset=".55" stop-color="${v("gold2")}"/><stop offset="1" stop-color="${v("gold")}"/></linearGradient>
+  </defs>
+  <path d="M32 4 52 10.5V29c0 14.2-8.6 24.6-20 30.5C20.6 53.6 12 43.2 12 29V10.5Z" fill="url(#f)" stroke="url(#g)" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M32 8.6 48 13.7V29c0 11.6-6.7 20.4-16 25.6C22.7 49.4 16 40.6 16 29V13.7Z" stroke="url(#g)" stroke-width=".9" opacity=".5"/>
+  <path d="M25.5 13.5 32 18l6.5-4.5" stroke="url(#g)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 43V24.5l7 10.5 7-10.5V43M44 24.5v13a5.5 5.5 0 0 1-5.5 5.5H34" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m32 48.6 1.7 1.7-1.7 1.7-1.7-1.7Z" fill="url(#g)"/>
 </svg>
 `;
 }

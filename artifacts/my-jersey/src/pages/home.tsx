@@ -1,48 +1,89 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'wouter';
 import { IconSprite } from '@workspace/my-jersey-design/components/ui/icon';
 import { Toast } from '@workspace/my-jersey-design/components/ui/toast';
 import { Header } from '@/components/site/header';
 import { Hero } from '@/components/site/hero';
 import { Works } from '@/components/site/works';
 import { Custom } from '@/components/site/custom';
+import { ForTeam } from '@/components/site/for-team';
 import { Shop } from '@/components/site/shop';
 import { ContactSection, Footer, Places, Team } from '@/components/site/people';
-import { SiteDialogs, type DialogState } from '@/components/site/site-dialogs';
-import { CREATIONS, WORKS, type Person, type Product } from '@/data/catalog';
-import { FN, WA, fmt, pad } from '@/lib/brand';
+import { SiteDialogs, type InfoDialogState } from '@/components/site/site-dialogs';
+import { CartDialog } from '@/components/site/cart-dialog';
+import { ProfileDialog } from '@/components/site/profile-dialog';
+import { TrackDialog } from '@/components/site/track-dialog';
+import { EMPTY_TEAM_FORM, TeamOrderDialog, type TeamForm, type TeamStep } from '@/components/site/team-order-dialog';
+import { useCommerce } from '@/hooks/use-commerce';
+import type { Person, Product } from '@/data/catalog';
 import { useReveal } from '@/lib/use-reveal';
 
+type Active = { kind: 'cart' } | { kind: 'profile' } | { kind: 'track' } | { kind: 'team'; step: TeamStep } | { kind: 'info'; info: NonNullable<InfoDialogState> } | null;
+
+const fromPath = (path: string): Active => {
+  if (path === '/order') return { kind: 'team', step: 'design' };
+  if (path === '/track') return { kind: 'track' };
+  if (path === '/cart') return { kind: 'cart' };
+  if (path === '/profile') return { kind: 'profile' };
+  return null;
+};
+
 export default function Home() {
-  const [dialog, setDialog] = useState<DialogState>(null);
-  const [cart, setCart] = useState<Product[]>([]);
+  const [location, setLocation] = useLocation();
+  const commerce = useCommerce();
+  const [active, setActive] = useState<Active>(() => fromPath(location));
+  const [teamForm, setTeamForm] = useState<TeamForm>({ ...EMPTY_TEAM_FORM });
+  const [designFile, setDesignFile] = useState<File | null>(null);
   const [toast, setToast] = useState({ open: false, key: 0, message: '' });
   useReveal();
 
-  const request = (sel: string) => setDialog({ kind: 'request', sel });
-  const order = (i: number) => {
-    const w = WORKS[i];
-    window.open(WA(FN, w ? `Hello My Jersey! I want to order the "${w[0]}" (${w[5]}, ${w[6]}). Design ref: No. ${pad(i)}.`
-      : `Hello My Jersey! I'd like to order the "${CREATIONS[i][0]}" concept design (ref No. ${pad(i)}). Please share fabric options and pricing.`), '_blank');
+  useEffect(() => { setActive(fromPath(location)); }, [location]);
+
+  const close = () => { setActive(null); if (location !== '/') setLocation('/', { replace: true }); };
+  const notify = (message: string) => setToast((t) => ({ open: true, key: t.key + 1, message }));
+
+  /** Opens the team flow, keeping unsent inputs; prefills empty contact fields from the device profile. */
+  const openTeam = (step: TeamStep = 'design', sel?: string) => {
+    const p = commerce.profile;
+    setTeamForm((f) => ({
+      ...f,
+      sel: sel ?? f.sel,
+      prepared: sel && sel !== f.sel ? null : f.prepared,
+      team: f.team || p.team, contactName: f.contactName || p.name, phone: f.phone || p.phone, email: f.email || p.email,
+    }));
+    setActive({ kind: 'team', step });
   };
-  const add = (p: Product) => { setCart((c) => [...c, p]); setToast((t) => ({ open: true, key: t.key + 1, message: 'Added to cart' })); };
-  const buy = (p: Product) => window.open(WA(FN, `Hello My Jersey! I want to buy: ${p.name} (${fmt(p.price)}).`), '_blank');
-  const wa = { onWa: (person: Person) => setDialog({ kind: 'wa', person }), onMail: (address: string) => setDialog({ kind: 'mail', address }) };
+
+  const add = (p: Product, thenOpen = false) => {
+    if (!commerce.addItem(p.id, commerce.profile.preferredSize)) { notify(p.inStock ? 'Could not add this jersey' : 'This jersey is sold out'); return; }
+    if (thenOpen) setActive({ kind: 'cart' }); else notify(`Added to cart · size ${commerce.profile.preferredSize}`);
+  };
+  const info = (i: NonNullable<InfoDialogState>) => setActive({ kind: 'info', info: i });
+  const wa = { onWa: (person: Person) => info({ kind: 'wa', person }), onMail: (address: string) => info({ kind: 'mail', address }) };
+  const openTrack = () => setActive({ kind: 'track' });
 
   return (
     <>
       <IconSprite />
-      <Header cartCount={cart.length} onCart={() => setDialog({ kind: 'cart' })} />
+      <Header cartCount={commerce.cartCount} profileName={commerce.profile.name} onCart={() => setActive({ kind: 'cart' })} onProfile={() => setActive({ kind: 'profile' })} onTrack={openTrack} />
       <main>
-        <Hero />
-        <Works onView={(index) => setDialog({ kind: 'view', index })} onCustomize={(i) => request('d:' + i)} onOrder={order} />
-        <Custom onRequest={() => request('')} />
-        <Shop onAdd={add} onCustomize={(p) => request('p:' + p.id)} onBuy={buy} />
-        <Places />
+        <Hero onTeamOrder={() => openTeam('design')} />
+        <Works onView={(index) => info({ kind: 'view', index })} onCustomize={(i) => openTeam('design', 'd:' + i)} onOrder={(i) => openTeam('details', 'd:' + i)} />
+        <Custom onRequest={() => openTeam('design')} />
+        <ForTeam onStep={(s) => openTeam(s)} onTrack={openTrack} />
+        <Shop onAdd={(p) => add(p)} onCustomize={(p) => openTeam('design', 'p:' + p.id)} onBuy={(p) => add(p, true)} />
+        <Places onWa={wa.onWa} />
         <Team {...wa} />
-        <ContactSection {...wa} />
+        <ContactSection {...wa} onTeamOrder={() => openTeam('design')} />
       </main>
       <Footer />
-      <SiteDialogs state={dialog} onClose={() => setDialog(null)} cart={cart} onRemove={(n) => setCart((c) => c.filter((_, k) => k !== n))} onRequest={request} />
+
+      {active?.kind === 'info' && <SiteDialogs state={active.info} onClose={close} onRequest={(sel) => openTeam('design', sel)} />}
+      {active?.kind === 'cart' && <CartDialog commerce={commerce} onClose={close} onProfile={() => setActive({ kind: 'profile' })} onTrack={openTrack} />}
+      {active?.kind === 'profile' && <ProfileDialog commerce={commerce} onClose={close} />}
+      {active?.kind === 'track' && <TrackDialog commerce={commerce} onClose={close} onNewOrder={() => openTeam('design')} />}
+      {active?.kind === 'team' && <TeamOrderDialog step={active.step} onStep={(step) => setActive({ kind: 'team', step })} onClose={close} onTrack={openTrack}
+        form={teamForm} setForm={setTeamForm} file={designFile} onFile={setDesignFile} commerce={commerce} />}
       <Toast open={toast.open} eventKey={toast.key} message={toast.message} onOpenChange={(open) => setToast((t) => ({ ...t, open }))} />
     </>
   );

@@ -1,5 +1,6 @@
-- [My Jersey creative direction](my-jersey-creative-direction.md) — user wants realistic street-football footage, not cartoon animation; welcome text follows the glass impact.
+- [My Jersey creative direction](my-jersey-creative-direction.md) — realistic one-shot hero; premium redesign supersedes the exact repository look; white–blue–gold light theme.
 - [Hero video playback](hero-video-playback.md) — use VP9 WebM for the website preview; preserve MP4 as a downloadable asset.
 - [Media stream warnings](media-stream-warnings.md) — cold GCS reads can warn despite valid media; verify integrity before diagnosing an outage.
 - [Preview captures](preview-captures.md) — SPA hash anchors can miss initial render; text fragments can target lower sections, with browser-only highlighting.
 - [Jersey reference imagery](jersey-reference-imagery.md) — use real kit references matched to names; distinguish stock photos and verify resolution before claiming original 4K.
+- [Storefront scope](my-jersey-storefront-scope.md) — custom/team starting offers are distinct; admin backend is explicitly deferred; never imply local requests are confirmed orders.

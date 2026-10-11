@@ -5,6 +5,7 @@
 @import "tw-animate-css";
 @import "../scripts/source-component-styles.css";
 @import "../scripts/source-feedback-styles.css";
+@import "../scripts/studio-styles.css";
 @plugin "@tailwindcss/typography";
 
 /* Register this package's own components so any consumer that imports this
@@ -325,6 +326,9 @@
 
 
 :root {
+  --gold-highlight: __DS_GOLD_HIGHLIGHT__;
+  --gold-gradient: __DS_GOLD_GRADIENT__;
+  --gold-fill: __DS_GOLD_FILL__;
   --bg: __DS_SOURCE_LIGHT_BG__;
   --bg2: __DS_SOURCE_LIGHT_BG2__;
   --card: __DS_SOURCE_LIGHT_CARD__;
@@ -340,6 +344,21 @@
   --bd2: __DS_SOURCE_LIGHT_BD2__;
   --sh: __DS_SOURCE_LIGHT_SH__;
   --ink: __DS_SOURCE_LIGHT_INK__;
+  --blue: __DS_SOURCE_LIGHT_BLUE__;
+  --blue2: __DS_SOURCE_LIGHT_BLUE2__;
+  --danger: __DS_SOURCE_LIGHT_DANGER__;
+  --navy: __DS_SOURCE_LIGHT_NAVY__;
+  --navy2: __DS_SOURCE_LIGHT_NAVY2__;
+  --wa: __DS_SOURCE_LIGHT_WA__;
+  --fb: __DS_SOURCE_LIGHT_FB__;
+  --glass: __DS_SOURCE_LIGHT_GLASS__;
+  --page: __DS_SOURCE_LIGHT_PAGE__;
+  --band: __DS_SOURCE_LIGHT_BAND__;
+  --band-tx: __DS_SOURCE_LIGHT_BANDTX__;
+  --band-mu: __DS_SOURCE_LIGHT_BANDMU__;
+  --band-bd: __DS_SOURCE_LIGHT_BANDBD__;
+  --glow: __DS_SOURCE_LIGHT_GLOW__;
+  --scrim: __DS_SOURCE_LIGHT_SCRIM__;
 }
 
 .dark {
@@ -358,6 +377,21 @@
   --bd2: __DS_SOURCE_DARK_BD2__;
   --sh: __DS_SOURCE_DARK_SH__;
   --ink: __DS_SOURCE_DARK_INK__;
+  --blue: __DS_SOURCE_DARK_BLUE__;
+  --blue2: __DS_SOURCE_DARK_BLUE2__;
+  --danger: __DS_SOURCE_DARK_DANGER__;
+  --navy: __DS_SOURCE_DARK_NAVY__;
+  --navy2: __DS_SOURCE_DARK_NAVY2__;
+  --wa: __DS_SOURCE_DARK_WA__;
+  --fb: __DS_SOURCE_DARK_FB__;
+  --glass: __DS_SOURCE_DARK_GLASS__;
+  --page: __DS_SOURCE_DARK_PAGE__;
+  --band: __DS_SOURCE_DARK_BAND__;
+  --band-tx: __DS_SOURCE_DARK_BANDTX__;
+  --band-mu: __DS_SOURCE_DARK_BANDMU__;
+  --band-bd: __DS_SOURCE_DARK_BANDBD__;
+  --glow: __DS_SOURCE_DARK_GLOW__;
+  --scrim: __DS_SOURCE_DARK_SCRIM__;
 }
 
 body { line-height:1.62; }

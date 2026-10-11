@@ -1,8 +1,6 @@
 /** Original repository assets, served by basename from the API. */
 export const media = (name: string) => `${import.meta.env.BASE_URL}api/brand-media/${name}`;
 export const srcset2 = (stem: string, large = 2048) => `${media(stem + '-768.webp')} 768w, ${media(stem + '.webp')} ${large}w`;
-export const LOGO = media('my-jersey-logo-768.webp');
-export const LOGO_SET = srcset2('my-jersey-logo');
 export const FN = '01607051027';
 export const pad = (i: number) => String(i + 1).padStart(2, '0');
 export const fmt = (n: number) => '৳' + n.toLocaleString('en-US');

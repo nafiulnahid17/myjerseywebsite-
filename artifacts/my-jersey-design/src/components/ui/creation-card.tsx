@@ -1,5 +1,6 @@
 import type { CSSProperties, HTMLAttributes } from 'react';
 import { Button } from './button';
+import { BrandMark } from './brand-logo';
 import { cn } from '../../lib/utils';
 
 export type JerseyCreation = {
@@ -10,7 +11,8 @@ export type JerseyCreation = {
   image: string;
   srcSet?: string;
   sizes?: string;
-  logo: string;
+  /** Optional raster badge; defaults to the scalable BrandMark crest. */
+  logo?: string;
   details?: { fabric: string; gsm: string; quality: string };
 };
 export type CreationCardProps = HTMLAttributes<HTMLElement> & {
@@ -32,7 +34,7 @@ export function CreationCard({creation:c,onView,onCustomize,onOrder,className,st
         width={640} height={640} loading={featured?'eager':'lazy'} decoding="async"
         alt={c.name+' jersey design preview, AI concept mockup'}/>
       <span className="mj-creation-number">No. {number}</span>
-      <img className="mj-creation-logo" src={c.logo} width={768} height={256} loading="lazy" decoding="async" alt=""/>
+      {c.logo?<img className="mj-creation-logo" src={c.logo} width={768} height={256} loading="lazy" decoding="async" alt=""/>:<BrandMark className="mj-creation-crest"/>}
       <span className="mj-creation-view"><i aria-hidden="true"><u style={{background:c.base}}/><u style={{background:c.accent}}/></i>View design</span>
     </button>
     <div className="mj-creation-body">

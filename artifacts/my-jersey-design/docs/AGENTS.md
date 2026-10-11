@@ -14,17 +14,28 @@ on it and import its theme and components directly.
 - `src/generated/tokens.tsx` — GENERATED hex token object, the package's `.` and
   `./tokens` entry. Mobile (Expo) and other platforms import this.
 - `public/favicon.svg` — GENERATED app icon from `tokens.json` + the title.
-- `src/components/ui/` — all eight repository-native families: Icon (including
-  IconSprite), Button, JerseyPreview, Tag, ProductCard, CreationCard, Dialog and
-  Toast. No required family is pending. ProductCard adds an optional `photo` reference-image variant (SVG default). The unused starter library is excluded.
-- Canonical source: user-owned https://github.com/atheriouslabs/myjerseywebmain.
-  Both light/dark themes are extracted. Use the genuine logo, DM Sans,
-  Playfair Display and Oswald, not the earlier cinematic reinterpretation.
+- `src/components/ui/` — nine families: BrandLogo (BrandLogo lockup + BrandMark
+  crest), Icon (including IconSprite; 16 repository icons plus 16 studio icons:
+  user, upload, clipboard, send, pin, track, file, plus, minus, trash, check,
+  lock, palette, grid), Button, JerseyPreview, Tag, ProductCard, CreationCard,
+  Dialog and Toast. ProductCard adds an optional `photo` reference-image variant.
+  CreationCard `logo` is optional and defaults to the BrandMark crest.
+- Premium revision (user-directed, supersedes the repository-identical look):
+  light theme is white + royal blue + gold, dark theme is midnight navy + gold.
+  The green raster logo is retired from rendered branding; use BrandLogo.
+  Fonts stay DM Sans, Playfair Display and Oswald.
+- Studio tokens (`source.*` in tokens.json, emitted as CSS vars): `--blue`,
+  `--blue2`, `--danger`, `--navy`, `--navy2`, `--wa`, `--fb`, `--glass`,
+  `--page` (site background gradient), `--band`/`--band-tx`/`--band-mu`/
+  `--band-bd` (premium navy feature surface, same in both themes), `--glow`,
+  `--scrim`, plus `--gold-highlight`, `--gold-gradient`, `--gold-fill`.
+- `scripts/studio-styles.css` — BrandLogo and studio component rules.
 - `scripts/source-component-styles.css` and `scripts/source-feedback-styles.css`
   — namespaced source CSS rules. The
   theme template imports these so consuming components retain exact source
   geometry, borders, gradients, shadows and interactions.
-- Mount IconSprite once per document. Default to dark on every fresh visit.
+- Mount IconSprite once per document. Theme preference persists per device
+  (localStorage key `mj-theme`); with no stored choice follow the OS setting.
   App-owned theme controls synchronize the root dark class and data-theme.
 - `docs/references/component-inventory.md` and
   `docs/references/components/*.md` — complete catalog and exact source evidence.
@@ -32,8 +43,8 @@ on it and import its theme and components directly.
 - `SKILL.md` — source-derived composition notes and product direction.
 - `tokens.json` also defines the decorative gold effects. The token generator
   emits them through the theme template; never edit generated CSS.
-- `src/assets/` — exported original PNG logo; import `./assets/my-jersey-logo.png`
-  from this package rather than linking to the non-deployable preview server.
+- `src/assets/` — archived original PNG logo (retired; do not render it as
+  branding). `public/favicon.svg` is generated from the BrandMark geometry.
 - `src/lib/` (`cn`, source jersey/icons, native dialog focus helpers) and `src/hooks/` — exported as `./lib/*` and `./hooks/*`.
 - `src/App.tsx` — the entry point for the living style guide.
 - `src/preview/DesignSystemBrowser.tsx` — the persistent grouped navigation,
@@ -149,9 +160,7 @@ For web/static consumers, follow the workspace dependency placement rules from
 the pnpm-workspace skill. Expo is a runtime consumer, so the package belongs in
 `dependencies`.
 
-Before migrating, complete all required families in the inventory and obtain
-the user's approval. Preserve the repository website exactly; only the requested
-hero video is the visual change. Then render one platform-appropriate primitive from
+The user approved applying the premium studio revision to the website. Then render one platform-appropriate primitive from
 the package and run the consumer's typecheck and dev server. Proceed only after
 the import resolves and the primitive uses this design system's theme.
 

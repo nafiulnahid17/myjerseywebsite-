@@ -1,3 +1,4 @@
+import { BrandLogo } from '../components/ui/brand-logo';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { IconSprite } from '../components/ui/icon';
 import {
@@ -145,13 +146,13 @@ export function DesignSystemBrowser() {
       <IconSprite />
       <aside className="border-b bg-muted/20 md:sticky md:top-0 md:flex md:h-screen md:flex-col md:border-b-0 md:border-r">
         <div className="border-b px-5 py-5">
-          <div className="mb-4 rounded-lg bg-[#08090a] px-3 py-2">
-            <img src={import.meta.env.BASE_URL + 'my-jersey-logo.png'} width="768" height="256" alt="My Jersey" className="h-auto w-full" />
+          <div className="mb-4 rounded-lg border bg-card px-3 py-3">
+            <BrandLogo size="small" />
           </div>
           <p className="text-sm font-semibold">{DESIGN_SYSTEM.title}</p>
           <p className="mt-1 text-xs text-muted-foreground">Browse the system</p>
           <button type="button" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="mt-4 rounded-full border px-3 py-2 text-xs focus-visible:outline-2 focus-visible:outline-ring" aria-label="Toggle light and dark theme">
-            {theme === 'dark' ? 'Dark · source theme' : 'Light · source theme'} ↔
+            {theme === 'dark' ? 'Dark theme' : 'Light theme'} · switch
           </button>
         </div>
         <div className="p-4 pb-2">

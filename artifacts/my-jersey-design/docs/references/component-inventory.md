@@ -19,3 +19,4 @@ Catalog normalizes the source CSS primitives and reusable render/helper function
 | Toast | components/toast.md | None | Add-to-cart confirmation | 2 | implemented |
 
 The pilot was approved. The final chunk (CreationCard, Dialog, Toast) is implemented. All eight required source families are available. Website migration still requires explicit application approval.
+| BrandLogo | components/brand-logo.md | None | Header, footer, banners, creation-card crest, favicon (premium revision, original) | 3 | implemented |
