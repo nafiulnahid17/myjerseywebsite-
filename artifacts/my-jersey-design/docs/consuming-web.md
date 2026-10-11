@@ -1,21 +1,42 @@
-# Consuming My Jersey in React web apps
+# Consuming My Jersey on the web
 
-Read docs/AGENTS.md first. Obtain approval before migrating existing screens. Add @workspace/my-jersey-design as a workspace dependency using the workspace dependency placement rules, install it, and import the package theme once:
+Read AGENTS.md and references/component-inventory.md first. Screen migration
+is blocked until the required source families are implemented and the user
+approves applying the completed system. Do not infer application approval
+from ownership permission or pilot approval.
 
-```css
-@import "@workspace/my-jersey-design/styles.css";
-```
-
-The theme already includes Tailwind, plugins, fonts and component sources. Do not duplicate them. Apply the dark class to the page root to preserve the source campaign. Light is a derived alternative.
+Add @workspace/my-jersey-design as a workspace dependency using the pnpm
+workspace rules. Import @workspace/my-jersey-design/styles.css once. Do not
+duplicate Tailwind, fonts, source component CSS or token definitions.
 
 ```tsx
-import { ActionLink } from "@workspace/my-jersey-design/components/ui/action-link";
-import { TextLink } from "@workspace/my-jersey-design/components/ui/text-link";
-import { BrandWordmark } from "@workspace/my-jersey-design/components/ui/brand-wordmark";
-import { DisplayTitle } from "@workspace/my-jersey-design/components/ui/display-title";
-import { cn } from "@workspace/my-jersey-design/lib/utils";
+import "@workspace/my-jersey-design/styles.css";
+import { Icon, IconSprite } from "@workspace/my-jersey-design/components/ui/icon";
+import { Button } from "@workspace/my-jersey-design/components/ui/button";
+import { JerseyPreview } from "@workspace/my-jersey-design/components/ui/jersey-preview";
+import { Tag } from "@workspace/my-jersey-design/components/ui/tag";
+import { ProductCard } from "@workspace/my-jersey-design/components/ui/product-card";
 ```
 
-ActionLink accepts native anchor props plus disabled. TextLink accepts native anchor props and variant navigation or underlined. BrandWordmark accepts span props and compact. DisplayTitle accepts heading props, as h1/h2/h3 and gold. All supplied classes may be extended with className. Keep navigation destinations and event handlers in the app. The source has a typographic mark, not an image logo file.
+Mount IconSprite once per document. Use the root dark class and data-theme=dark
+on fresh visits. Theme controls remove the dark class and set data-theme=light
+for light mode. Do not persist a previous choice: the repository defaults to
+dark each visit. Both themes come directly from the repository.
 
-Render one ActionLink, run the consumer typecheck and confirm the theme in its running preview before broader migration. The package does not ship a retail cart, forms, checkout, toaster, tooltip provider, video player or full page layouts. Keep existing unrelated infrastructure; do not rewrite those imports to nonexistent exports.
+Button supports primary/outline/icon/filter variants, default/small sizes,
+native button attributes, href/target/rel for CTA anchors, disabled guards and
+active filter state. Icon supports the 16 names documented in its preview.
+JerseyPreview takes base/accent colors and name/number, matching the original
+SVG; give aria-label only when it needs an independent accessible name.
+Tag supports stock/category; category tags need a positioned parent.
+ProductCard takes product data and onAdd/onCustomize/onBuy callbacks. It
+disables buying and cart actions when sold out, but keeps Customize enabled.
+
+Read each corresponding source contract for pinned provenance and port notes.
+Keep product arrays, cart mutations, request form validation, contact details,
+WhatsApp links, navigation and full section compositions in the application.
+The source is native HTML/CSS/JS, with no headless UI implementation to replace.
+
+Import proof: render one Button, typecheck and verify the runtime theme before
+broader migration. Use the genuine logo retained in this package rather than
+introducing a typography-based replacement. Preserve original agency attribution.

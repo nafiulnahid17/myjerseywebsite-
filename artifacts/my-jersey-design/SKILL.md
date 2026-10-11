@@ -1,41 +1,39 @@
-# My Jersey visual language
+# My Jersey source-backed visual system
 
-Source: the authored campaign in the existing My Jersey workspace app. This is
-an extraction of its branded inline primitives, not a new retail design or a
-generic starter UI library.
+Read docs/AGENTS.md and the platform consumption guide first. The user-owned
+atheriouslabs/myjerseywebmain repository is authoritative. Match it exactly;
+only the requested hero video is a visual change to the existing website.
 
-## What's here
+## Source typography and themes
 
-- Complete dark and derived light tokens; gold decorative effects also live in
-  tokens.json.
-- BrandWordmark, ActionLink, TextLink and DisplayTitle. The complete catalog
-  fits one four-family pilot; no later families are pending.
-- Source evidence: docs/references/component-inventory.md and the linked
-  per-family contracts.
-- A living browser with palette, type, layout, component stories and motion.
+DM Sans: body/CTA, 400–700. Playfair Display: headings 600/800, italic 800.
+Oswald: labels, jersey names, jersey numbers and prices, 500/600. The source
+has no monospace brand face. Both dark and light palettes are real source
+themes. Every fresh visit defaults to dark; the theme toggle is per visit.
 
-## Extracted composition rules
+Preserve the source gold gradient, subtle translucent borders, near-black
+surfaces, green inventory/brand accents, 99px CTA pills and 22px product cards.
+Use the actual image logo rather than drawing another monogram. Do not add
+a generic component kit or invent a third theme. Keep the agency attribution.
 
-These rules are observable in the source, rather than a separately documented
-brand manual: warm near-black surfaces; restrained gold emphasis; Bodoni Moda
-editorial headings, often italic; Archivo readable body text; widely tracked
-mono eyebrows; pill CTAs; generous section spacing. Deep green and lime echo
-the storefront and street-football campaign.
+## Source catalog
 
-The source website has no true light mode. The cream light theme is deliberately
-derived and must not be described as extracted from an existing light screen.
+See docs/references/component-inventory.md. Five pilot families are available:
+Icon (mount IconSprite once), Button, JerseyPreview, Tag and ProductCard.
+CreationCard, Dialog and Toast remain pending pilot approval. Finish the
+source catalog before offering screen migration.
 
-## Product direction
+## Hero constraint
 
-The user requires realistic street-football footage, not cartoon action. The
-welcome text follows the broken glass. The latest requested behavior is
-autoplay once per fresh page load or refresh, hold the ending, and no player
-controls or timer. Website changes require the user's design-system decision;
-the preview documents these requirements but does not implement them in the
-existing app.
+After application approval, add the existing realistic football footage to
+the repository hero. Autoplay muted and inline once per fresh load/refresh,
+no looping, then hold the final frame. No visible media controls, timer, replay
+or Watch the strike again UI. Do not redesign other sections or content.
 
-## Consumers
+## Runtime
 
-Read docs/AGENTS.md, then the platform consumption guide. Import the package;
-do not copy the theme or components. Keep video state, navigation destinations,
-business content and product-specific layouts in the consuming app.
+Import the exported styles once. Native source CSS is included and resolves
+its exact theme values through generated source aliases. Preserve native
+button semantics, disabled stock actions, source hover transforms, keyboard
+focus and reduced motion. Keep product data, cart state, request validation
+and WhatsApp destinations in the consuming app.

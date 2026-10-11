@@ -1,8 +1,9 @@
 /* GENERATED FROM tokens.json BY scripts/build-tokens.mjs -- DO NOT EDIT.
  * Edit tokens.json instead; the dev server regenerates this file on change. */
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Oswald:wght@500;600&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../scripts/source-component-styles.css";
 @plugin "@tailwindcss/typography";
 
 /* Register this package's own components so any consumer that imports this
@@ -69,6 +70,7 @@
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
   --font-mono: var(--app-font-mono);
+  --font-condensed: var(--app-font-condensed);
 
   --text-xs: 0.75rem;
   --text-xs--line-height: calc(1 / 0.75);
@@ -151,6 +153,7 @@
   --app-font-sans: __DS_FONT_SANS__;
   --app-font-serif: __DS_FONT_SERIF__;
   --app-font-mono: __DS_FONT_MONO__;
+  --app-font-condensed: __DS_FONT_CONDENSED__;
   --radius: __DS_RADIUS__;
   --spacing: __DS_SPACING__;
 
@@ -319,9 +322,41 @@
   }
 }
 
-/* Campaign effects originate in tokens.json and the source website. */
-:root { --jersey-gold-gradient: var(--color-primary); --jersey-gold-fill: var(--color-primary); --jersey-highlight: var(--color-primary); }
-.dark { --jersey-gold-gradient: __DS_GOLD_GRADIENT__; --jersey-gold-fill: __DS_GOLD_FILL__; --jersey-highlight: __DS_GOLD_HIGHLIGHT__; }
-.jersey-metal { background: var(--jersey-gold-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.jersey-cta { background: var(--jersey-gold-fill); color: var(--color-primary-foreground); }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+:root {
+  --bg: __DS_SOURCE_LIGHT_BG__;
+  --bg2: __DS_SOURCE_LIGHT_BG2__;
+  --card: __DS_SOURCE_LIGHT_CARD__;
+  --card2: __DS_SOURCE_LIGHT_CARD2__;
+  --tx: __DS_SOURCE_LIGHT_TX__;
+  --mu: __DS_SOURCE_LIGHT_MU__;
+  --gold: __DS_SOURCE_LIGHT_GOLD__;
+  --gold2: __DS_SOURCE_LIGHT_GOLD2__;
+  --gold3: __DS_SOURCE_LIGHT_GOLD3__;
+  --grn: __DS_SOURCE_LIGHT_GRN__;
+  --grn2: __DS_SOURCE_LIGHT_GRN2__;
+  --bd: __DS_SOURCE_LIGHT_BD__;
+  --bd2: __DS_SOURCE_LIGHT_BD2__;
+  --sh: __DS_SOURCE_LIGHT_SH__;
+  --ink: __DS_SOURCE_LIGHT_INK__;
+}
+
+.dark {
+  --bg: __DS_SOURCE_DARK_BG__;
+  --bg2: __DS_SOURCE_DARK_BG2__;
+  --card: __DS_SOURCE_DARK_CARD__;
+  --card2: __DS_SOURCE_DARK_CARD2__;
+  --tx: __DS_SOURCE_DARK_TX__;
+  --mu: __DS_SOURCE_DARK_MU__;
+  --gold: __DS_SOURCE_DARK_GOLD__;
+  --gold2: __DS_SOURCE_DARK_GOLD2__;
+  --gold3: __DS_SOURCE_DARK_GOLD3__;
+  --grn: __DS_SOURCE_DARK_GRN__;
+  --grn2: __DS_SOURCE_DARK_GRN2__;
+  --bd: __DS_SOURCE_DARK_BD__;
+  --bd2: __DS_SOURCE_DARK_BD2__;
+  --sh: __DS_SOURCE_DARK_SH__;
+  --ink: __DS_SOURCE_DARK_INK__;
+}
+
+body { line-height:1.62; }

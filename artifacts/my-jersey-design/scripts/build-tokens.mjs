@@ -159,11 +159,19 @@ function buildCss(tokens) {
   replacements.__DS_FONT_MONO__ = toFontStack(
     resolveValue(tokens.typography.fontFamily.mono, tokens),
   );
+  replacements.__DS_FONT_CONDENSED__ = toFontStack(
+    resolveValue(tokens.typography.fontFamily.condensed, tokens),
+  );
   replacements.__DS_RADIUS__ = resolveValue(tokens.radius.base, tokens);
   replacements.__DS_SPACING__ = resolveValue(tokens.spacing.base, tokens);
   replacements.__DS_GOLD_GRADIENT__ = resolveValue(tokens.effect.goldGradient, tokens);
   replacements.__DS_GOLD_FILL__ = resolveValue(tokens.effect.goldFill, tokens);
   replacements.__DS_GOLD_HIGHLIGHT__ = resolveValue(tokens.effect.goldHighlight, tokens);
+  for (const scope of ["light", "dark"]) {
+    for (const [name, token] of Object.entries(tokens.source[scope])) {
+      replacements[`__DS_SOURCE_${scope.toUpperCase()}_${name.toUpperCase()}__`] = resolveValue(token, tokens);
+    }
+  }
 
   for (const [token, value] of Object.entries(replacements)) {
     css = css.split(token).join(value);
@@ -188,6 +196,7 @@ function buildTs(tokens) {
       sans: resolveValue(tokens.typography.fontFamily.sans, tokens),
       serif: resolveValue(tokens.typography.fontFamily.serif, tokens),
       mono: resolveValue(tokens.typography.fontFamily.mono, tokens),
+      condensed: resolveValue(tokens.typography.fontFamily.condensed, tokens),
     },
     radius: resolveValue(tokens.radius.base, tokens),
     spacing: resolveValue(tokens.spacing.base, tokens),
@@ -196,6 +205,9 @@ function buildTs(tokens) {
       goldFill: resolveValue(tokens.effect.goldFill, tokens),
       goldHighlight: resolveValue(tokens.effect.goldHighlight, tokens),
     },
+    source: Object.fromEntries(["light", "dark"].map(scope => [
+      scope, Object.fromEntries(Object.entries(tokens.source[scope]).map(([name, token]) => [name, resolveValue(token, tokens)])),
+    ])),
   };
   return `/* GENERATED FROM tokens.json -- DO NOT EDIT. Run scripts/build-tokens.mjs. */
 // Portable design tokens (colors as hex). Web consumes the theme via

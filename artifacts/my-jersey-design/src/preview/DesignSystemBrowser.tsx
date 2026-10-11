@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { BrandWordmark } from '../components/ui/brand-wordmark';
+import { IconSprite } from '../components/ui/icon';
 import {
   ALL_ENTRIES,
   DESIGN_SYSTEM,
@@ -93,7 +93,10 @@ function NavigationItems({
 
 export function DesignSystemBrowser() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => new URLSearchParams(window.location.search).get('theme') === 'light' ? 'light' : 'dark');
-  useEffect(() => { document.documentElement.classList.toggle('dark', theme === 'dark'); }, [theme]);
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
   const [selectedId, select] = useSelectedId();
   const [query, setQuery] = useState('');
   const mobileNav = useRef<HTMLDetailsElement>(null);
@@ -139,13 +142,16 @@ export function DesignSystemBrowser() {
 
   return (
     <div className="min-h-screen bg-background text-foreground md:grid md:grid-cols-[260px_minmax(0,1fr)]">
+      <IconSprite />
       <aside className="border-b bg-muted/20 md:sticky md:top-0 md:flex md:h-screen md:flex-col md:border-b-0 md:border-r">
         <div className="border-b px-5 py-5">
-          <BrandWordmark className="mb-4" />
+          <div className="mb-4 rounded-lg bg-[#08090a] px-3 py-2">
+            <img src={import.meta.env.BASE_URL + 'my-jersey-logo.png'} width="768" height="256" alt="My Jersey" className="h-auto w-full" />
+          </div>
           <p className="text-sm font-semibold">{DESIGN_SYSTEM.title}</p>
           <p className="mt-1 text-xs text-muted-foreground">Browse the system</p>
           <button type="button" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="mt-4 rounded-full border px-3 py-2 text-xs focus-visible:outline-2 focus-visible:outline-ring" aria-label="Toggle light and dark theme">
-            {theme === 'dark' ? 'Dark · source theme' : 'Light · derived theme'} ↔
+            {theme === 'dark' ? 'Dark · source theme' : 'Light · source theme'} ↔
           </button>
         </div>
         <div className="p-4 pb-2">

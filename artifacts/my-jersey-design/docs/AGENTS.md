@@ -1,4 +1,4 @@
-# My Jersey Design System design system
+# My Jersey Design System
 
 This package defines the visual language for the project. Use it whenever you
 build or restyle UI so every surface looks like the same product. It is a real
@@ -14,9 +14,17 @@ on it and import its theme and components directly.
 - `src/generated/tokens.tsx` — GENERATED hex token object, the package's `.` and
   `./tokens` entry. Mobile (Expo) and other platforms import this.
 - `public/favicon.svg` — GENERATED app icon from `tokens.json` + the title.
-- `src/components/ui/` — four native-element brand primitives extracted from
-  the authored campaign: BrandWordmark, ActionLink, TextLink and DisplayTitle.
-  The unused starter library is deliberately excluded.
+- `src/components/ui/` — repository-native pilot: Icon (including IconSprite),
+  Button, JerseyPreview, Tag and ProductCard. CreationCard, Dialog and Toast are
+  cataloged but pending pilot approval. The unused starter library is excluded.
+- Canonical source: user-owned https://github.com/atheriouslabs/myjerseywebmain.
+  Both light/dark themes are extracted. Use the genuine logo, DM Sans,
+  Playfair Display and Oswald, not the earlier cinematic reinterpretation.
+- `scripts/source-component-styles.css` — namespaced source CSS rules. The
+  theme template imports these so consuming components retain exact source
+  geometry, borders, gradients, shadows and interactions.
+- Mount IconSprite once per document. Default to dark on every fresh visit.
+  App-owned theme controls synchronize the root dark class and data-theme.
 - `docs/references/component-inventory.md` and
   `docs/references/components/*.md` — complete catalog and exact source evidence.
   Read the linked contract before changing any cataloged family.
@@ -137,7 +145,9 @@ For web/static consumers, follow the workspace dependency placement rules from
 the pnpm-workspace skill. Expo is a runtime consumer, so the package belongs in
 `dependencies`.
 
-Before migrating an entire app, obtain the user's approval, then render one platform-appropriate primitive from
+Before migrating, complete all required families in the inventory and obtain
+the user's approval. Preserve the repository website exactly; only the requested
+hero video is the visual change. Then render one platform-appropriate primitive from
 the package and run the consumer's typecheck and dev server. Proceed only after
 the import resolves and the primitive uses this design system's theme.
 
