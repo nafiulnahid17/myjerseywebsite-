@@ -18,10 +18,10 @@ a generic component kit or invent a third theme. Keep the agency attribution.
 
 ## Source catalog
 
-See docs/references/component-inventory.md. Five pilot families are available:
-Icon (mount IconSprite once), Button, JerseyPreview, Tag and ProductCard.
-CreationCard, Dialog and Toast remain pending pilot approval. Finish the
-source catalog before offering screen migration.
+See docs/references/component-inventory.md. All eight source families are ready:
+Icon (mount IconSprite once), Button, JerseyPreview, Tag, ProductCard,
+CreationCard, Dialog and Toast. The source catalog is complete; obtain explicit
+application approval before changing website screens.
 
 ## Hero constraint
 

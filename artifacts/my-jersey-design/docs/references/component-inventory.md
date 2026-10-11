@@ -14,8 +14,8 @@ Catalog normalizes the source CSS primitives and reusable render/helper function
 | JerseyPreview | components/jersey-preview.md | None | Hero jersey previews and both ready-made collections | 1 | implemented |
 | Tag | components/tag.md | None | Category and inventory state in every collection card | 1 | implemented |
 | ProductCard | components/product-card.md | Button, Tag, JerseyPreview (same chunk) | Football and cricket collection renderer | 1 | implemented |
-| CreationCard | components/creation-card.md | Button (earlier chunk) | Recent-work image grid and customize/order actions | 2 | pending |
-| Dialog | components/dialog.md | Icon, Button (earlier chunk) | Lightbox, request form, cart and contact dialog shell | 2 | pending |
-| Toast | components/toast.md | None | Add-to-cart confirmation | 2 | pending |
+| CreationCard | components/creation-card.md | Button (earlier chunk) | Recent-work image grid and customize/order actions | 2 | implemented |
+| Dialog | components/dialog.md | Icon, Button (earlier chunk) | Lightbox, request form, cart and contact dialog shell | 2 | implemented |
+| Toast | components/toast.md | None | Add-to-cart confirmation | 2 | implemented |
 
-Pilot: Icon, Button, JerseyPreview, Tag, ProductCard. Continue only after the user reviews the pilot. Final chunk: CreationCard, Dialog, Toast. Do not migrate screens while these required families are pending.
+The pilot was approved. The final chunk (CreationCard, Dialog, Toast) is implemented. All eight required source families are available. Website migration still requires explicit application approval.

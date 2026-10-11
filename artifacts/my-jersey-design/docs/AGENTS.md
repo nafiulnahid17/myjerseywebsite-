@@ -14,13 +14,14 @@ on it and import its theme and components directly.
 - `src/generated/tokens.tsx` — GENERATED hex token object, the package's `.` and
   `./tokens` entry. Mobile (Expo) and other platforms import this.
 - `public/favicon.svg` — GENERATED app icon from `tokens.json` + the title.
-- `src/components/ui/` — repository-native pilot: Icon (including IconSprite),
-  Button, JerseyPreview, Tag and ProductCard. CreationCard, Dialog and Toast are
-  cataloged but pending pilot approval. The unused starter library is excluded.
+- `src/components/ui/` — all eight repository-native families: Icon (including
+  IconSprite), Button, JerseyPreview, Tag, ProductCard, CreationCard, Dialog and
+  Toast. No required family is pending. The unused starter library is excluded.
 - Canonical source: user-owned https://github.com/atheriouslabs/myjerseywebmain.
   Both light/dark themes are extracted. Use the genuine logo, DM Sans,
   Playfair Display and Oswald, not the earlier cinematic reinterpretation.
-- `scripts/source-component-styles.css` — namespaced source CSS rules. The
+- `scripts/source-component-styles.css` and `scripts/source-feedback-styles.css`
+  — namespaced source CSS rules. The
   theme template imports these so consuming components retain exact source
   geometry, borders, gradients, shadows and interactions.
 - Mount IconSprite once per document. Default to dark on every fresh visit.
@@ -31,7 +32,9 @@ on it and import its theme and components directly.
 - `SKILL.md` — source-derived composition notes and product direction.
 - `tokens.json` also defines the decorative gold effects. The token generator
   emits them through the theme template; never edit generated CSS.
-- `src/lib/` (`cn`) and `src/hooks/` — exported as `./lib/*` and `./hooks/*`.
+- `src/assets/` — exported original PNG logo; import `./assets/my-jersey-logo.png`
+  from this package rather than linking to the non-deployable preview server.
+- `src/lib/` (`cn`, source jersey/icons, native dialog focus helpers) and `src/hooks/` — exported as `./lib/*` and `./hooks/*`.
 - `src/App.tsx` — the entry point for the living style guide.
 - `src/preview/DesignSystemBrowser.tsx` — the persistent grouped navigation,
   branded header, search, deep links, and active page shell.
@@ -65,6 +68,7 @@ not add `.ts` files here.
 ".":              "./src/generated/tokens.tsx",
 "./tokens":       "./src/generated/tokens.tsx",
 "./styles.css":   "./src/index.css",
+"./assets/*":     "./src/assets/*",
 "./components/*": "./src/components/*.tsx",
 "./lib/*":        "./src/lib/*.tsx",
 "./hooks/*":      "./src/hooks/*.tsx"

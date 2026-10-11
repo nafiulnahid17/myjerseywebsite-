@@ -4,6 +4,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../scripts/source-component-styles.css";
+@import "../scripts/source-feedback-styles.css";
 @plugin "@tailwindcss/typography";
 
 /* Register this package's own components so any consumer that imports this
