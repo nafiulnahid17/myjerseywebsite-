@@ -87,3 +87,5 @@
 @media(max-width:560px){#works .lc{grid-template-columns:1fr}}
 @media(hover:none){:is(#shop .mj-product-card,#works .lk,#places .ph,#team .fd,#contact .ct>*):hover{transform:none}}
 @media(prefers-reduced-motion:reduce){:is(#shop .mj-product-card,#works .lk,#places .ph,#team .fd)::after{transition:none}}
+#shop .shop-ref-note{max-width:640px;margin:calc(var(--cc-s) * 3) 0 0;font-size:12.5px;line-height:1.5;color:var(--mu)}
+#shop .mj-product-card .mj-product-photo figcaption{font-size:10px}

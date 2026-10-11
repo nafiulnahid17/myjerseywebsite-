@@ -2,3 +2,4 @@
 - [Hero video playback](hero-video-playback.md) — use VP9 WebM for the website preview; preserve MP4 as a downloadable asset.
 - [Media stream warnings](media-stream-warnings.md) — cold GCS reads can warn despite valid media; verify integrity before diagnosing an outage.
 - [Preview captures](preview-captures.md) — SPA hash anchors can miss initial render; text fragments can target lower sections, with browser-only highlighting.
+- [Jersey reference imagery](jersey-reference-imagery.md) — use real kit references matched to names; distinguish stock photos and verify resolution before claiming original 4K.
