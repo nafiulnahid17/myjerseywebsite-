@@ -21,3 +21,13 @@ Navigation: “Recent works,” “Contact,” “About,” “Outlets,” and �
 **Why:** The user explicitly requested an automatic website hero, not a video-player interface.
 
 **How to apply:** Keep film playback state separate from visible controls; do not add replay UI or looping when revising the hero. Preserve the two CTA labels and five navigation labels.
+
+## Canonical website reference
+
+The user subsequently specified: “https://github.com/atheriouslabs/myjerseywebmain - ei repo er moto same to same hbe shudu hero section a video ta add hbe”.
+
+Use that repository as the authoritative visual reference. Match its existing website rather than inventing a new layout or extending the earlier cinematic landing page; only the requested hero video is the visual change.
+
+**Why:** The user rejected applying the first extracted design system and supplied this stricter, source-backed direction.
+
+**How to apply:** Preserve the repository's typography, colors, page structure and existing content. When earlier layout, navigation or CTA proposals differ from the repository, the newer exact-match instruction takes precedence. Keep the previously requested one-shot autoplay and final-frame hold for the added video.
