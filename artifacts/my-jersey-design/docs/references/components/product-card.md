@@ -26,6 +26,10 @@ const card=i=>{const ok=i[5],d=ok?'':'disabled';return `<div class="cd"><span cl
 
 ProductCard: product {id,name,category,base,accent,price,inStock}, div DOM props, onAdd/onCustomize/onBuy callbacks receiving that product. Includes the source quality threshold (price >=1450), Dri-Fit Mesh, local BDT price formatting and three source actions. Sold-out products disable add/buy but not customize. App owns actual cart/order mutations.
 
+## Optional photo variant (additive, not in source)
+
+`photo?: ProductPhoto` = {src,srcSet?,sizes?,alt,width,height,label,sourceUrl,sourceName}. Replaces the SVG with a contained (unstretched) image in a fixed square premium frame using verified published image dimensions. A publisher's enlarged rendition does not establish the resolution of the camera original. Load failure renders an explicit "Reference unavailable" state; no SVG fallback. Caption identifies the reference kit and links to its source; the consuming collection must disclose that reference images are not verified stock photos or proof of affiliation. Actions are unchanged. Styles: `.mj-product-photo*` in scripts/source-component-styles.css.
+
 ## Runtime and fidelity
 
 Import the generated token theme. scripts/source-component-styles.css is included by the theme template. Native CSS aliases retain the exact source colors, rgba borders, gradients, shadows, hover geometry and both original themes. Load the exact source Google Fonts URL for DM Sans, Playfair Display and Oswald. Synchronize the root dark class with data-theme. Mount IconSprite once per document. App-global IDs, product arrays, selector-based state, contact destinations and full sections stay in the app.

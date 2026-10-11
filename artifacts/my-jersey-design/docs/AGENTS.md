@@ -16,7 +16,7 @@ on it and import its theme and components directly.
 - `public/favicon.svg` — GENERATED app icon from `tokens.json` + the title.
 - `src/components/ui/` — all eight repository-native families: Icon (including
   IconSprite), Button, JerseyPreview, Tag, ProductCard, CreationCard, Dialog and
-  Toast. No required family is pending. The unused starter library is excluded.
+  Toast. No required family is pending. ProductCard adds an optional `photo` reference-image variant (SVG default). The unused starter library is excluded.
 - Canonical source: user-owned https://github.com/atheriouslabs/myjerseywebmain.
   Both light/dark themes are extracted. Use the genuine logo, DM Sans,
   Playfair Display and Oswald, not the earlier cinematic reinterpretation.

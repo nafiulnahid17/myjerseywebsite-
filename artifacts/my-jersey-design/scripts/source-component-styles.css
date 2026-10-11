@@ -19,3 +19,17 @@
 .mj-button:focus-visible,.mj-icon-button:focus-visible,.mj-filter:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .mj-button[aria-disabled=true]{opacity:.32;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.mj-button,.mj-icon-button,.mj-filter,.mj-product-card,.mj-jersey-svg{animation:none!important;transition:none!important}}
+/* ProductCard optional reference photo (not in source; additive). Fixed 4:5 frame prevents layout shift; contain keeps whole jersey unstretched. */
+.mj-product-photo{margin:6px 0 2px;display:flex;flex-direction:column;gap:5px}
+.mj-product-card[data-media=photo]>:first-child{z-index:2}
+.mj-product-photo-frame{position:relative;aspect-ratio:1;border-radius:calc(var(--radius) + var(--spacing)/2);overflow:hidden;border:1px solid var(--bd);background:radial-gradient(ellipse at 50% 30%,color-mix(in srgb,var(--gold) 12%,transparent),transparent 65%),linear-gradient(180deg,var(--card2),var(--card))}
+.mj-product-photo-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8%;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .35s;opacity:0}
+.mj-product-photo-frame img[data-loaded=true]{opacity:1}
+.mj-product-card:hover .mj-product-photo-frame img{transform:scale(1.04)}
+.mj-product-photo-frame[data-state=loading]{background-size:200% 100%}
+.mj-product-photo-missing{position:absolute;inset:0;display:grid;place-content:center;gap:4px;text-align:center;padding:12px;color:var(--mu);font-size:11.5px}
+.mj-product-photo-missing b{font:600 10.5px var(--app-font-condensed,Oswald,sans-serif);letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
+.mj-product-photo-badge{position:absolute;right:8px;bottom:8px;font:600 9px var(--app-font-condensed,Oswald,sans-serif);letter-spacing:.14em;text-transform:uppercase;color:var(--tx);background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--bd);padding:2px 7px;border-radius:99px}
+.mj-product-photo figcaption{font-size:10.5px;line-height:1.35;color:var(--mu);overflow-wrap:anywhere}
+.mj-product-photo figcaption a{color:var(--gold2);text-decoration:underline;text-underline-offset:2px}
+@media(prefers-reduced-motion:reduce){.mj-product-photo-frame img{transition:none!important}}
