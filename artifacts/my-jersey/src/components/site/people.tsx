@@ -46,7 +46,7 @@ export function ContactSection({ onWa, onMail }: Contact) {
       <span className="eb">Contact</span><h2>Let's Make Your Jersey</h2>
       <div className="ct">
         <a href={FACEBOOK} target="_blank" rel="noopener"><span className="k fb"><Icon name="fb" /></span><small>Facebook page</small><b>My Jersey</b></a>
-        <button type="button" onClick={() => onMail(STUDIO_MAIL)}><span className="k ml"><Icon name="mail" /></span><small>Email</small><b>{STUDIO_MAIL}</b></button>
+        <button type="button" onClick={() => onMail(STUDIO_MAIL)}><span className="k ml"><Icon name="mail" /></span><small>Email</small><b>{STUDIO_MAIL.split('@')[0]}<wbr />@{STUDIO_MAIL.split('@')[1]}</b></button>
         <button type="button" onClick={() => onWa(FOUNDER)}><span className="k wa"><Icon name="wa" /></span><small>Number 1 · Founder</small><b>{FOUNDER.number}</b></button>
         <button type="button" onClick={() => onWa(DESIGNER)}><span className="k wa"><Icon name="wa" /></span><small>Number 2 · Designer</small><b>{DESIGNER.number}</b></button>
       </div>
