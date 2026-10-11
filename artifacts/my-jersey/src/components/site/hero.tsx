@@ -19,7 +19,7 @@ export function Hero({ onTeamOrder }: { onTeamOrder: () => void }) {
   return (
     <section className="hero" id="top">
       {!failed && (
-        <video className="hero-film" src={HERO_VIDEO} poster={HERO_POSTER} muted playsInline autoPlay={!reducedMotion} preload="auto"
+        <video className="hero-film" src={HERO_VIDEO} poster={HERO_POSTER} muted playsInline autoPlay={!reducedMotion} preload={reducedMotion ? 'none' : 'metadata'}
           aria-hidden="true" tabIndex={-1} onError={() => setFailed(true)}
           onTimeUpdate={event => { if (event.currentTarget.currentTime >= HERO_REVEAL_SECONDS) revealWelcome(); }}
           onEnded={revealWelcome} />

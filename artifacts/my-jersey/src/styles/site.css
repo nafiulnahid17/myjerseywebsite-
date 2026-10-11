@@ -1,14 +1,13 @@
 /* Repository page compositions (public/index.html). Shared primitives come from the design system. */
 html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px));background:var(--bg)}
-body{background:var(--page) fixed,var(--bg)!important}
+body{background:var(--page),var(--bg)!important}
 body{background:var(--bg);color:var(--tx);font:16px/1.62 'DM Sans',system-ui,sans-serif;overflow-x:hidden;transition:background .35s,color .35s;padding-bottom:env(safe-area-inset-bottom,0px)}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 img{max-width:100%;height:auto}
 h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.1;letter-spacing:-.01em}
 section{padding:96px 5vw;position:relative}.w{max-width:1200px;margin:auto}
 .eb{color:var(--gold);letter-spacing:.24em;text-transform:uppercase;font:600 11.5px Oswald,sans-serif;display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}.eb:before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--blue),var(--gold))}
 h2{font-size:clamp(32px,4.8vw,56px)}.sub{color:var(--mu);max-width:560px;margin-top:12px}
-header.site{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:calc(10px + env(safe-area-inset-top,0px)) 5vw 10px;background:var(--glass);backdrop-filter:blur(8px) saturate(1.15);-webkit-backdrop-filter:blur(8px) saturate(1.15);border-bottom:1px solid var(--bd)}
+header.site{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:calc(10px + env(safe-area-inset-top,0px)) 5vw 10px;background:var(--bg);border-bottom:1px solid var(--bd)}
 .brand{display:flex;align-items:center;text-decoration:none}
 #nv{margin-left:auto;display:flex;gap:26px}#nv a{color:var(--mu);text-decoration:none;font-size:14px;font-weight:500;position:relative;padding:4px 0;transition:color .2s}#nv a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .25s}#nv a:hover{color:var(--tx)}#nv a:hover:after{transform:scaleX(1)}
 .ha{display:flex;gap:8px}#hb{display:none}
@@ -36,7 +35,7 @@ h1{font-size:clamp(46px,7.6vw,96px);font-weight:600}h1 em{font-weight:800;backgr
 .ct .k{grid-row:span 2;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:var(--band-tx)}.ct .k .mj-icon{width:24px;height:24px}.k.fb{background:var(--fb)}.k.wa{background:var(--wa)}.k.ml{background:linear-gradient(160deg,var(--gold2),var(--gold3));color:var(--ink)}
 .ct small{color:var(--mu);display:block}.ct b{font-size:17px;color:var(--gold2);word-break:break-all;font-weight:600}:root:not(.dark) .ct b{color:var(--gold3)}
 footer.site{padding:56px 5vw 32px;background:var(--bg2);border-top:1px solid var(--bd);text-align:center}footer.site .fl{width:min(260px,70%);height:auto;display:block;margin:0 auto 22px}footer.site .al{width:64px;height:64px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 8px;border:1px solid var(--bd)}footer.site p{color:var(--mu);font-size:14px;margin-top:6px}footer.site a{color:var(--gold2);text-decoration:none}footer.site hr{border:0;border-top:1px solid var(--bd);margin:26px auto 18px;max-width:600px}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.v{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(12px);transition:opacity .24s ease-out,transform .24s cubic-bezier(.2,.8,.2,1)}.rv.v{opacity:1;transform:none}
 @media(max-width:900px){#hb{display:grid}#nv{position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:4px;background:var(--bg);padding:14px 5vw 20px;border-bottom:1px solid var(--bd);display:none;margin:0}#nv a{padding:10px 0;font-size:16px}#nv.open{display:flex}.ha{margin-left:auto}.hero,.two{grid-template-columns:1fr}section{padding:68px 5vw}.hero{min-height:auto}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}

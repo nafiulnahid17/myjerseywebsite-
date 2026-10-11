@@ -26,7 +26,7 @@ export function Places({ onWa }: { onWa: (p: Person) => void }) {
         {PLACES.map((p, i) => (
           <article key={p.key} className="pl rv" data-testid={`card-place-${p.key}`}>
             <figure>
-              <img src={media(`${p.key}-768.webp`)} srcSet={srcset2(p.key)} sizes="(max-width:900px) 92vw, 600px" width={2048} height={1365} loading="lazy" decoding="async" alt={p.alt} />
+              <img src={media(`${p.key}-768.webp`)} srcSet={srcset2(p.key)} sizes="(max-width:900px) 92vw, 320px" width={2048} height={1365} loading="lazy" decoding="async" alt={p.alt} />
               <figcaption><span>{String(i + 1).padStart(2, '0')}</span>{p.label}</figcaption>
             </figure>
             <div className="pl-body">
