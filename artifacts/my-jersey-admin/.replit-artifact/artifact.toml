@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/my-jersey-admin/"
+title = "My Jersey Admin"
+description = "A non-persistent, sample-data prototype for reviewing My Jersey orders, team requests, jersey catalog content, and storefront settings. Supabase and secure admin access are intentionally deferred."
+version = "1.0.0"
+id = "artifacts/my-jersey-admin"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/my-jersey-admin/" ]
+localPort = 25053
+
+[services.development]
+run = "pnpm --filter @workspace/my-jersey-admin run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/my-jersey-admin", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/my-jersey-admin/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25053"
+BASE_PATH = "/my-jersey-admin/"

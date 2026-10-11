@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>My Jersey · Studio Workspace</title>
+    <meta name="description" content="A sample-only internal operating workspace prototype for My Jersey." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content="My Jersey Admin" />
+    <meta property="og:description" content="A sample-only internal operating workspace prototype for My Jersey." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="My Jersey Admin" />
+    <meta name="twitter:description" content="A sample-only internal operating workspace prototype for My Jersey." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+      (function () {
+        var preference = null;
+        try { preference = window.localStorage.getItem('mj-theme'); } catch {}
+        var dark = preference === 'dark' ||
+          (preference !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', Boolean(dark));
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
