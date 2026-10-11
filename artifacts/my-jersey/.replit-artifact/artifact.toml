@@ -1,7 +1,7 @@
 kind = "web"
 previewPath = "/"
 title = "My Jersey"
-description = "A premium My Jersey website hero with a photorealistic street football cinematic, a glass-breaking shot, and a Crafted for Champions brand reveal."
+description = "My Jersey’s repository-matched sportswear website, with custom jersey requests, WhatsApp ordering and a one-shot realistic street-football hero video."
 version = "1.0.0"
 id = "artifacts/my-jersey"
 router = "path"

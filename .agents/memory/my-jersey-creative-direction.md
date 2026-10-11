@@ -28,6 +28,12 @@ The user subsequently specified: “https://github.com/atheriouslabs/myjerseyweb
 
 Use that repository as the authoritative visual reference. Match its existing website rather than inventing a new layout or extending the earlier cinematic landing page; only the requested hero video is the visual change.
 
+Exception to the repository hero: do not restore its two floating jersey graphics over the video.
+
+**Why:** The user explicitly asked to remove them because they looked bad over the footage.
+
+**How to apply:** Keep the hero footage unobstructed by decorative jersey graphics; preserve the existing text, CTAs and playback behavior.
+
 **Why:** The user rejected applying the first extracted design system and supplied this stricter, source-backed direction.
 
 **How to apply:** Preserve the repository's typography, colors, page structure and existing content. When earlier layout, navigation or CTA proposals differ from the repository, the newer exact-match instruction takes precedence. Keep the previously requested one-shot autoplay and final-frame hold for the added video.
