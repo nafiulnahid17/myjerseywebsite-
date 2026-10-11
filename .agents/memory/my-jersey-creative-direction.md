@@ -34,6 +34,12 @@ Exception to the repository hero: do not restore its two floating jersey graphic
 
 **How to apply:** Keep the hero footage unobstructed by decorative jersey graphics; preserve the existing text, CTAs and playback behavior.
 
+Card styling is also an approved exception: “all the highlighted cards of every section - reduce size to 50 % - and give more premium vibe - premium experience for user”.
+
+**Why:** The user explicitly requested this site-wide card refinement after approving the repository-matched website.
+
+**How to apply:** Keep card surfaces compact and premium within the existing design system. Preserve readable mobile text, usable controls, product content and behavior; leave the hero unchanged.
+
 **Why:** The user rejected applying the first extracted design system and supplied this stricter, source-backed direction.
 
 **How to apply:** Preserve the repository's typography, colors, page structure and existing content. When earlier layout, navigation or CTA proposals differ from the repository, the newer exact-match instruction takes precedence. Keep the previously requested one-shot autoplay and final-frame hold for the added video.
