@@ -8,6 +8,12 @@ Use real team-kit reference photographs for collection cards, matched to their n
 
 **How to apply:** When replacing collection imagery, distinguish team references from verified photos of My Jersey inventory. Do not infer official merchandise status or team affiliation from an image.
 
+When a matching high-resolution reference is unavailable, retain the existing illustration until the user supplies matching 2K–4K photos.
+
+**Why:** The user chose “Use my matching 2K–4K photos” rather than accepting lower-resolution or colour-mismatched substitutes.
+
+**How to apply:** Do not relax the resolution or colour-match requirement for unresolved collection images without further approval.
+
 A CDN response at a requested large size is not evidence of a native high-resolution original.
 
 **Why:** Public jersey-image providers offer resized renditions; published source files can be substantially smaller than the requested rendition.
