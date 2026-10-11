@@ -1,31 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button } from '@workspace/my-jersey-design/components/ui/button';
 import { Icon } from '@workspace/my-jersey-design/components/ui/icon';
 import { HERO_POSTER, HERO_VIDEO, HERO_REVEAL_SECONDS } from '@/lib/hero-media';
 
 /** Source hero; the realistic footage plays once beneath it and holds its final frame. */
 export function Hero({ onTeamOrder }: { onTeamOrder: () => void }) {
-  const video = useRef<HTMLVideoElement>(null);
+  const revealedWelcome = useRef(false);
   const [failed, setFailed] = useState(false);
   const [welcomed, setWelcomed] = useState(false);
   const [reducedMotion] = useState(() => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
-  useEffect(() => {
-    const v = video.current;
-    if (!v) return;
-    if (reducedMotion) return; // source disables motion: keep poster
-    v.muted = true;
-    v.currentTime = 0;
-    v.play().catch(() => { /* autoplay blocked: poster frame remains */ });
-  }, [reducedMotion]);
+  const revealWelcome = () => {
+    if (revealedWelcome.current) return;
+    revealedWelcome.current = true;
+    setWelcomed(true);
+  };
 
   return (
     <section className="hero" id="top">
       {!failed && (
-        <video ref={video} className="hero-film" src={HERO_VIDEO} poster={HERO_POSTER} muted playsInline autoPlay={!reducedMotion} preload="auto"
+        <video className="hero-film" src={HERO_VIDEO} poster={HERO_POSTER} muted playsInline autoPlay={!reducedMotion} preload="auto"
           aria-hidden="true" tabIndex={-1} onError={() => setFailed(true)}
-          onTimeUpdate={event => { if (event.currentTarget.currentTime >= HERO_REVEAL_SECONDS) setWelcomed(true); }}
-          onEnded={() => setWelcomed(true)} />
+          onTimeUpdate={event => { if (event.currentTarget.currentTime >= HERO_REVEAL_SECONDS) revealWelcome(); }}
+          onEnded={revealWelcome} />
       )}
       {failed && <img className="hero-film" src={HERO_POSTER} alt="" aria-hidden="true" />}
       <div className="hero-scrim" aria-hidden="true" />
