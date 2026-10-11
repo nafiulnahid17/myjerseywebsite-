@@ -1,0 +1,30 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "GCSa8zVpDWklsTJC7xVHI"
+uri = "file://generated-artifacts/my-jersey/background-4k.jpg"
+type = "image"
+title = "My Jersey — 4K Hero Background"
+description = "3840×2160 upscaled background based on your storefront reference, with four realistic street-football players and MY JERSEY 10 branding."
+logical_id = "f907aa5a-1373-43a7-96e6-bcbda219e9c8"
+content_hash = "sha256:69ad6f23c0f12727be74e714d86482c33b7b57624e4c53cc7bc054dedcc71a15"
+size = 1917615
+mtime_ms = 1791683018338
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:539ded48-7ab9-472d-9627-7e817d7c8c2e/f907aa5a-1373-43a7-96e6-bcbda219e9c8/31674886-9630-4700-a81a-3e11e8f9c6a0"
+storage_version_token = "1791683643502334"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "ouaaR5phPDxvKCEw3XVcP"
+uri = "file://generated-artifacts/my-jersey/cinematic.mp4"
+type = "video"
+title = "My Jersey — Realistic Hero Footage"
+description = "8-second 1080p MP4: street football, a fast kick, and the shop window shattering. The welcome text is added as a synchronized overlay on the website."
+logical_id = "d1a8447b-4e36-432a-bae2-7ecdbc93e698"
+content_hash = "sha256:fee67d914df8535b7e5748eae8f52d0d6b177254d135a9973ba24b52227dca93"
+size = 6532886
+mtime_ms = 1791683309784
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:539ded48-7ab9-472d-9627-7e817d7c8c2e/d1a8447b-4e36-432a-bae2-7ecdbc93e698/a1cf2de4-a580-4b44-acb5-192d5e577dc4"
+storage_version_token = "1791683644942098"
+content_type = "video/mp4"

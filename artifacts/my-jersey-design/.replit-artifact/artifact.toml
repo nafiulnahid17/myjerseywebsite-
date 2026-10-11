@@ -1,0 +1,19 @@
+kind = "design-system"
+previewPath = "/my-jersey-design/"
+title = "My Jersey Design System"
+description = "The extracted My Jersey visual language: cinematic dark surfaces, gold typography and controls, green brand accents, and reusable campaign primitives. Existing website screens are not changed."
+version = "1.0.0"
+id = "artifacts/my-jersey-design"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/my-jersey-design/" ]
+localPort = 24548
+
+[services.development]
+run = "pnpm --filter @workspace/my-jersey-design run dev"
+
+[services.env]
+PORT = "24548"
+BASE_PATH = "/my-jersey-design/"

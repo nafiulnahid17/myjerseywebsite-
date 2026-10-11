@@ -1,0 +1,2 @@
+- [My Jersey creative direction](my-jersey-creative-direction.md) — user wants realistic street-football footage, not cartoon animation; welcome text follows the glass impact.
+- [Hero video playback](hero-video-playback.md) — use VP9 WebM for the website preview; preserve MP4 as a downloadable asset.
