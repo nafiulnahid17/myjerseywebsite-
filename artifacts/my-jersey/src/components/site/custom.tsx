@@ -4,18 +4,18 @@ import { BrandLogo } from '@workspace/my-jersey-design/components/ui/brand-logo'
 import { designImg } from '@/lib/brand';
 
 const STEPS: [string, string, string][] = [
-  ['Choose your style or upload your reference', 'Pick from our 25 designs, or select your own reference file to preview before sending it in WhatsApp.', 'upload'],
+  ['Choose your style or upload your reference', 'Choose from 25 designs or add a reference before ordering.', 'upload'],
   ['Give your details', 'Team name, quantity, sizes and numbers.', 'clipboard'],
-  ['Get your design now', 'Our designers prepare your artwork and confirm it with you before production.', 'pen'],
+  ['Get your design now', 'Approve your artwork with our designer before production.', 'pen'],
 ];
 
-/** Full-width custom kit banner: roughly 16:9 on desktop, intrinsic height on mobile. */
+/** Compact, full-width custom kit campaign banner. */
 export function Custom({ onRequest }: { onRequest: () => void }) {
   return (
     <section id="custom" className="mjb-sec">
       <div className="mjb rv">
         <picture className="mjb-im">
-          <img src={designImg(0, '1280')} srcSet={`${designImg(0, '1280')} 1280w, ${designImg(0, '4k')} 3840w`} sizes="(max-width:900px) 100vw, 62vw" width={1280} height={1280} loading="lazy" decoding="async" alt="Black and gold My Jersey design preview with lightning sleeves" />
+          <img src={designImg(0, '1280')} srcSet={`${designImg(0, '1280')} 1280w, ${designImg(0, '4k')} 3840w`} sizes="(max-width:900px) 100vw, 62vw" width={1280} height={1280} loading="lazy" decoding="async" fetchPriority="low" alt="Black and gold My Jersey design preview with lightning sleeves" />
         </picture>
         <div className="mjb-tx">
           <BrandLogo size="small" className="mjb-logo" label="" />

@@ -3,10 +3,10 @@
 :root{--cc-ease:cubic-bezier(.2,.8,.2,1);--cc-hair:color-mix(in srgb,var(--gold) 28%,transparent);--cc-s:var(--spacing);--cc-r:var(--radius);--cc-r-lg:calc(var(--radius) + var(--spacing));--cc-r-xl:calc(var(--radius) * 2)}
 
 /* Shared premium surface: hairline gold top edge, quiet lift */
-:is(#shop .mj-product-card,#works .lk,#places .pl,#team .pp,#contact .ct>*){position:relative;transition:transform .45s var(--cc-ease),border-color .45s,box-shadow .45s}
-:is(#shop .mj-product-card,#works .lk,#places .pl,#team .pp)::after{content:"";position:absolute;left:18%;right:18%;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);opacity:.35;transition:opacity .45s,left .45s var(--cc-ease),right .45s var(--cc-ease);pointer-events:none;z-index:2}
+:is(#shop .mj-product-card,#works .lk,#places .pl,#team .pp,#contact .ct>*){position:relative;transition:transform .22s var(--cc-ease),border-color .22s}
+:is(#shop .mj-product-card,#works .lk,#places .pl,#team .pp)::after{content:"";position:absolute;left:18%;right:18%;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);opacity:.35;transition:opacity .22s,left .22s var(--cc-ease),right .22s var(--cc-ease);pointer-events:none;z-index:2}
 :is(#shop .mj-product-card,#works .lk,#places .pl,#team .pp):hover::after{opacity:.9;left:8%;right:8%}
-:is(#shop .mj-product-card,#works .lk,#places .pl,#team .pp,#contact .ct>*):hover{transform:translateY(calc(var(--cc-s) * -.75));border-color:var(--cc-hair);box-shadow:var(--sh),0 0 0 1px color-mix(in srgb,var(--gold) 10%,transparent)}
+:is(#shop .mj-product-card,#works .lk,#places .pl,#team .pp,#contact .ct>*):hover{transform:translateY(calc(var(--cc-s) * -.5));border-color:var(--cc-hair)}
 :is(#shop .mj-product-card,#works .lk,#places .pl,#team .pp):focus-within{border-color:var(--cc-hair)}
 
 /* Product collections: 6-up atelier grid */
