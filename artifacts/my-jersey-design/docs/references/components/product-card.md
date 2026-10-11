@@ -28,7 +28,7 @@ ProductCard: product {id,name,category,base,accent,price,inStock}, div DOM props
 
 ## Optional photo variant (additive, not in source)
 
-`photo?: ProductPhoto` = {src,srcSet?,sizes?,alt,width,height,label,sourceUrl,sourceName}. Replaces the SVG with a contained (unstretched) image in a fixed square premium frame using verified published image dimensions. A publisher's enlarged rendition does not establish the resolution of the camera original. Load failure renders an explicit "Reference unavailable" state; no SVG fallback. Caption identifies the reference kit and links to its source; the consuming collection must disclose that reference images are not verified stock photos or proof of affiliation. Actions are unchanged. Styles: `.mj-product-photo*` in scripts/source-component-styles.css.
+`photo?: ProductPhoto` = {src,srcSet?,sizes?,alt,width,height,label,sourceUrl,sourceName,kind?}. `kind` defaults to `reference`; use `concept` only for an explicitly labelled AI-generated design. Replaces the SVG with a contained (unstretched) image in a fixed square premium frame using verified published image dimensions. A publisher's enlarged rendition does not establish the resolution of the camera original. Load failure renders an explicit "Image unavailable" state; no SVG fallback. Badge distinguishes references from AI concepts. Caption identifies the reference/design and links to its source/full-size asset; the consuming collection must disclose that references and concepts are not verified stock photos or proof of affiliation. Actions are unchanged. Styles: `.mj-product-photo*` in scripts/source-component-styles.css.
 
 ## Runtime and fidelity
 

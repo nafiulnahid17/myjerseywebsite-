@@ -22,7 +22,7 @@ export default function ProductCardDemo() {
       <ProductCard product={{...SAMPLE_PRODUCT,id:'reference-india',name:'India Blue Edition'}} photo={REFERENCE_PHOTO} onAdd={p=>setStatus('Add: '+p.name)} onCustomize={p=>setStatus('Customize: '+p.name)} onBuy={p=>setStatus('Buy: '+p.name)}/>
       <ProductCard product={SAMPLE_PRODUCT} photo={MISSING_PHOTO} onAdd={p=>setStatus('Add: '+p.name)} onCustomize={p=>setStatus('Customize: '+p.name)} onBuy={p=>setStatus('Buy: '+p.name)}/>
     </div>
-    <p className="text-sm text-muted-foreground">Pass an optional photo prop to replace the drawn jersey with a reference photograph in a compact square frame. Failed loads show "Reference unavailable", never the SVG. Captions identify the reference and link to its source.</p>
+    <p className="text-sm text-muted-foreground">Pass an optional photo prop to replace the drawn jersey with a reference photograph in a compact square frame. Use kind="concept" for AI-generated designs; its badge distinguishes them from reference photos. Failed loads show "Image unavailable", never the SVG. Captions identify the reference and link to its source.</p>
     <p role="status" className="text-sm text-muted-foreground">{status}</p>
     <p className="text-sm text-muted-foreground">The out-of-stock card disables Add To Cart and Buy Now but keeps Customize available, matching the repository.</p>
   </div>;

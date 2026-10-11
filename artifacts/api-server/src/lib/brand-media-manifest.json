@@ -346,5 +346,65 @@
   "outlet.webp": {
     "bytes": 766580,
     "sha256": "ea1e610e739489fce44c83e93a624df62d2db0b9a28bb50eae184649d4a6ff3a"
+  },
+  "jersey-concept-cr0-1280.webp": {
+    "bytes": 186338,
+    "sha256": "7f8836f53e0b4ae4919d1d04fadab4941f5eb71db5b4a6f074be8b95028661ba"
+  },
+  "jersey-concept-cr0-3840.webp": {
+    "bytes": 756220,
+    "sha256": "20bdfcf99592239be3d1662b32746f673dc70b5df47db39992aab69aa90b3a9a"
+  },
+  "jersey-concept-cr0-640.webp": {
+    "bytes": 48760,
+    "sha256": "9166f2ff8d781c72b0ae66fd54fcc2b05eb35f81c9a0f791dbff79ee67bf6c94"
+  },
+  "jersey-concept-cr5-1280.webp": {
+    "bytes": 213462,
+    "sha256": "8ed8742df008832992bc01713a19db00e3061afcfd538f09aeced8cbba8f7df9"
+  },
+  "jersey-concept-cr5-3840.webp": {
+    "bytes": 842280,
+    "sha256": "0f9419b9db76f81f4e0a825f9d12376845b6ffc6e2401a888768a105f579b585"
+  },
+  "jersey-concept-cr5-640.webp": {
+    "bytes": 62058,
+    "sha256": "6df58a6ba53b573a6b5e4c81137b30afa43e17f48370226a6e680ac1843e8a01"
+  },
+  "jersey-concept-cr6-1280.webp": {
+    "bytes": 177944,
+    "sha256": "f0a972c34fbbcdc25a6725212858e81175781f75255999178b63cf92c6246228"
+  },
+  "jersey-concept-cr6-3840.webp": {
+    "bytes": 718340,
+    "sha256": "cd0b6e08e01cd73129fc0cc42522fd87e9be54f2485f27ad76d55906797963a9"
+  },
+  "jersey-concept-cr6-640.webp": {
+    "bytes": 50072,
+    "sha256": "f5dd23bb4f4854ae1e78ea297b314285464ad3d10a15163784492e56167fc409"
+  },
+  "jersey-concept-cr9-1280.webp": {
+    "bytes": 189200,
+    "sha256": "655fb655a71c39704af28bff9a04ae5b55e3de82e4dc5cd133a96f017bc44350"
+  },
+  "jersey-concept-cr9-3840.webp": {
+    "bytes": 762768,
+    "sha256": "bbbbec76b1b4b45568c5d80761de5197e4ced0e0c5703572174133171c6dc6b4"
+  },
+  "jersey-concept-cr9-640.webp": {
+    "bytes": 51444,
+    "sha256": "48f7fcbff008df755010f94a5f897df2032434f9695597e7023c936dc9284d71"
+  },
+  "jersey-concept-fb0-1280.webp": {
+    "bytes": 140890,
+    "sha256": "fba1357666511b8df4c7f90440af528b5aafbcc59919226af025b5100bec5925"
+  },
+  "jersey-concept-fb0-3840.webp": {
+    "bytes": 576214,
+    "sha256": "74f53918b2e0f55cfe04a336497cbd5cb05e2c1f70ec0afcbe7a1a49c61db3b8"
+  },
+  "jersey-concept-fb0-640.webp": {
+    "bytes": 42944,
+    "sha256": "7d4c5eebef8fc0998311aa4376dec356d978cdb5c508e51334e80e0874fbcdb2"
   }
 }

@@ -8,11 +8,11 @@ Use real team-kit reference photographs for collection cards, matched to their n
 
 **How to apply:** When replacing collection imagery, distinguish team references from verified photos of My Jersey inventory. Do not infer official merchandise status or team affiliation from an image.
 
-When a matching high-resolution reference is unavailable, retain the existing illustration until the user supplies matching 2K–4K photos.
+Do not substitute lower-resolution or colour-mismatched references when a matching high-resolution reference is unavailable.
 
-**Why:** The user chose “Use my matching 2K–4K photos” rather than accepting lower-resolution or colour-mismatched substitutes.
+**Why:** The user initially chose matching uploads over weaker substitutes, then supplied no files and explicitly instructed “create and include.”
 
-**How to apply:** Do not relax the resolution or colour-match requirement for unresolved collection images without further approval.
+**How to apply:** The user authorized generating concepts for the missing collection images. Label those as AI-generated concepts, not official kit photos or actual inventory photographs; distinguish upscaled 4K exports from native originals. Keep the existing real references elsewhere.
 
 A CDN response at a requested large size is not evidence of a native high-resolution original.
 

@@ -5,8 +5,8 @@ import { JerseyPreview } from './jersey-preview';
 import { cn } from '../../lib/utils';
 
 export type JerseyProduct = {id:string;name:string;category:string;base:string;accent:string;price:number;inStock:boolean};
-/** Optional real reference photograph. width/height are the verified published image dimensions. */
-export type ProductPhoto = {src:string;srcSet?:string;sizes?:string;alt:string;width:number;height:number;label:string;sourceUrl:string;sourceName:string};
+/** Reference photography or explicitly labelled AI concepts, with verified image dimensions. */
+export type ProductPhoto = {src:string;srcSet?:string;sizes?:string;alt:string;width:number;height:number;label:string;sourceUrl:string;sourceName:string;kind?:'reference'|'concept'};
 export type ProductCardProps = HTMLAttributes<HTMLDivElement> & {
   product:JerseyProduct;
   /** When provided, replaces the drawn SVG jersey. A failed load shows an explicit unavailable state (never the SVG). */
@@ -22,10 +22,10 @@ function ProductPhotoFigure({photo}:{photo:ProductPhoto}) {
   return <figure className="mj-product-photo">
     <div className="mj-product-photo-frame" data-state={state}>
       {state==='error'
-        ? <div className="mj-product-photo-missing" role="img" aria-label={'Reference image unavailable: '+photo.alt}><b>Reference unavailable</b><span>Image could not be loaded</span></div>
+        ? <div className="mj-product-photo-missing" role="img" aria-label={'Image unavailable: '+photo.alt}><b>Image unavailable</b><span>Image could not be loaded</span></div>
         : <img src={photo.src} srcSet={photo.srcSet} sizes={photo.sizes} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async"
             data-loaded={state==='loaded'} onLoad={()=>setState('loaded')} onError={()=>setState('error')}/>}
-      <span className="mj-product-photo-badge" aria-hidden="true">Reference</span>
+      <span className="mj-product-photo-badge" aria-hidden="true">{photo.kind==='concept'?'AI concept':'Reference'}</span>
     </div>
     <figcaption>{photo.label}<br/><a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`View jersey reference source: ${photo.sourceName}`}>{photo.sourceName} ↗</a></figcaption>
   </figure>;
