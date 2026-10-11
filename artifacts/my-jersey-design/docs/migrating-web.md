@@ -1,13 +1,21 @@
-# Migrating existing My Jersey screens
+# Applying the repository-backed system
 
-Read docs/AGENTS.md and docs/consuming-web.md. Ask whether to apply the system before changing existing screens; do not treat artifact creation as migration approval.
+1. Read AGENTS.md, consuming-web.md and references/component-inventory.md.
+2. Complete required source families. Pilot review does not authorize screen
+   migration, and ownership permission does not authorize it either.
+3. Present the completed design system and explicitly ask whether to apply it.
+4. After approval, add the package dependency, import the theme, render one
+   Button and verify the consumer typecheck and running preview.
+5. Match the canonical repository website exactly: its structure, copy,
+   catalog, logo, type, colors, images and attribution. Only add the requested
+   hero footage, with one-shot autoplay and final-frame hold, without controls.
+6. Replace superseded local theme/component primitives with package imports.
+   Preserve unrelated providers and app-owned data/ordering behavior. Do not
+   import pending or nonexistent component exports.
+7. Verify available and out-of-stock actions, theme switching, mobile
+   navigation, dialogs, request validation and WhatsApp handoffs when migrating.
 
-1. Verify all four source contracts in docs/references/components/. No required brand family is pending.
-2. Add the package dependency, import its styles once, and render a primitive to verify resolution.
-3. Replace duplicate local theme definitions with the package theme. Retain product-specific composition CSS and video behavior.
-4. Replace the inline brand lockup, CTA anchors, navigation/text links and heading styling with BrandWordmark, ActionLink, TextLink and DisplayTitle respectively.
-5. Delete only the wrappers and theme rules actually superseded by these exports. The package deliberately excludes unused starter shadcn UI and bootstrap toast/tooltip providers. Keep any infrastructure still required by the app; do not remove all local UI blindly.
-6. Keep app-specific content, paths, business data, navigation state and playback state in the app.
-7. Typecheck and inspect mobile and desktop previews, verifying autoplay, final-frame hold, CTA destinations and reduced motion if the hero is updated.
-
-For a canvas mockup, follow the mockup-sandbox skill: re-home under this design-system entry, update every matching frame and remove the previous file only after all references move. Never restyle an unrelated entry in place.
+For an existing canvas mockup, read the mockup-sandbox skill and re-home it
+under this design system entry rather than restyling it in place. Repoint all
+related frames before removing any previous mockup file. No canvas migration
+is part of the current pilot revision.
